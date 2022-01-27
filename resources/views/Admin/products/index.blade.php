@@ -32,7 +32,7 @@
                                     <td>{{$product->brand->title}}</td>
                                     <td><img src="{{str_replace('public' , '/storage',$product->image)}}" height="75px"
                                              width="200px"></td>
-                                    <td><a href="#" class="btn btn-sm btn-warning">گالری</a>
+                                    <td><a href="{{route('gallery.create',$product)}}" class="btn btn-sm btn-warning">گالری</a>
                                     <td><a href="{{route('products.edit',$product)}}" class="btn btn-sm btn-primary">ویرایش</a>
                                     </td>
                                     <td>

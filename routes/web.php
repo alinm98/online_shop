@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,11 @@ Route::get('panelAdmin' , function (){
     return view('Admin.index');
 });
 
+Route::get('/gallery/{product}' , [GalleryController::class,'create'])->name('gallery.create');
+Route::post('/gallery/{product}/store' , [GalleryController::class,'store'])->name('gallery.store');
+Route::delete('/gallery/{gallery}/destroy' , [GalleryController::class,'destroy'])->name('gallery.destroy');
+
 Route::resource('/categories' , CategoryController::class);
 Route::resource('/brands' , BrandController::class);
 Route::resource('products',ProductController::class);
+
