@@ -78,7 +78,7 @@
                                  class="img-size-50 ml-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
-                                    حسام موسوی
+                                    ALiNAMi
                                     <span class="float-left text-sm text-danger"><i class="fa fa-star"></i></span>
                                 </h3>
                                 <p class="text-sm">با من تماس بگیر لطفا...</p>
@@ -180,7 +180,7 @@
                             class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">حسام موسوی</a>
+                        <a href="#" class="d-block">ALiNAMi</a>
                     </div>
                 </div>
 
@@ -190,31 +190,54 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
+
+
+
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-pie-chart"></i>
                                 <p>
-                                    چارت‌ها
+                                    دسته بندی ها
                                     <i class="right fa fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/admin/pages/charts/chartjs.html" class="nav-link">
+                                    <a href="{{route('categories.index')}}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>نمودار ChartJS</p>
+                                        <p>لیست</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/pages/charts/flot.html" class="nav-link">
+                                    <a href="{{route('categories.create')}}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>نمودار Flot</p>
+                                        <p>ایجاد</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-pie-chart"></i>
+                                <p>
+                                    برند ها
+                                    <i class="right fa fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('brands.index')}}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>لیست</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/pages/charts/inline.html" class="nav-link">
+                                    <a href="{{route('brands.create')}}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>نمودار Inline</p>
+                                        <p>ایجاد</p>
                                     </a>
                                 </li>
                             </ul>
@@ -230,37 +253,9 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">داشبورد</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-left">
-                            <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                            <li class="breadcrumb-item active">داشبورد ورژن 2</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <!-- Main row -->
-                <div class="row">
-                    <section class="col-lg-12 connectedSortable">
+        @yield('content')
 
-                    </section>
-                </div>
-                <!-- /.row (main row) -->
-            </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
@@ -309,5 +304,6 @@
 <script src="/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/admin/dist/js/demo.js"></script>
+@yield('script')
 </body>
 </html>

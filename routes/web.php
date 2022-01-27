@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,6 @@ Route::get('/', function () {
 Route::get('panelAdmin' , function (){
     return view('Admin.index');
 });
+
+Route::resource('/categories' , CategoryController::class);
+Route::resource('/brands' , BrandController::class);

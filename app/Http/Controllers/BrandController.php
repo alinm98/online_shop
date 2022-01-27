@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CategoryRequest;
-use App\Models\Category;
+use App\Http\Requests\BrandsRequest;
+use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class CategoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('Admin.categories.index', [
-            'categories' => Category::all()
+        return view('Admin.brands.index', [
+            'brands' => Brand::all()
         ]);
     }
 
@@ -27,9 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('Admin.categories.create', [
-            'categories' => Category::all()
-        ]);
+        return view('Admin.brands.create');
     }
 
     /**
@@ -38,23 +37,24 @@ class CategoryController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function store(CategoryRequest $request)
+    public function store(BrandsRequest $request)
     {
-        Category::query()->create([
+        $image = $request->file('image')->store('public/images/brands');
+        Brand::query()->create([
             'title' => $request->get('title'),
-            'category_id' => $request->get('category_id')
+            'image' => $image
         ]);
 
-        return redirect(route('categories.index'));
+        return redirect(route('brands.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Category $category
+     * @param \App\Models\Brand $brand
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Brand $brand)
     {
         //
     }
@@ -62,43 +62,45 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Category $category
+     * @param \App\Models\Brand $brand
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Brand $brand)
     {
-        return view('Admin.categories.edit' ,[
-            'category' => $category,
-            'categories' => Category::all()
+        return view('Admin.brands.edit', [
+            'brand' => $brand
         ]);
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Category $category
+     * @param \App\Models\Brand $brand
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Brand $brand)
     {
-        $category->update([
+        $image = $request->file('image')->store('public/images/brands');
+        Storage::delete($brand->image);
+        $brand->update([
             'title' => $request->get('title'),
-            'category_id' => $request->get('category_id')
+            'image' => $image
         ]);
 
-        return redirect(route('categories.index'));
+        return redirect(route('brands.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Category $category
+     * @param \App\Models\Brand $brand
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function destroy(Category $category)
+    public function destroy(Brand $brand)
     {
-        $category->delete();
-        return redirect(route('categories.index'));
+        $brand->delete();
+        return redirect(route('brands.index'));
     }
 }
