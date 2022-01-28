@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,10 @@ Route::get('/gallery/{product}' , [GalleryController::class,'create'])->name('ga
 Route::post('/gallery/{product}/store' , [GalleryController::class,'store'])->name('gallery.store');
 Route::delete('/gallery/{gallery}/destroy' , [GalleryController::class,'destroy'])->name('gallery.destroy');
 
+
 Route::resource('/categories' , CategoryController::class);
 Route::resource('/brands' , BrandController::class);
 Route::resource('products',ProductController::class);
+Route::resource('products.discounts',DiscountController::class);
+
 

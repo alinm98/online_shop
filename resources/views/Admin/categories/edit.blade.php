@@ -37,7 +37,13 @@
                                 </div>
                             </div>
                             <!-- /.card-body -->
-
+                            @if(count($errors->all()) > 0)
+                                <ul class="bg-danger">
+                                    @foreach($errors->all() as $error)
+                                        <li class="text-black">{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">ثبت</button>
                             </div>

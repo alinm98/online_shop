@@ -17,6 +17,7 @@
                                 <th>دسته بندی</th>
                                 <th>برند</th>
                                 <th>تصویر</th>
+                                <th>تخفیف</th>
                                 <th>گالری</th>
                                 <th>ویرایش</th>
                                 <th>حذف</th>
@@ -32,6 +33,22 @@
                                     <td>{{$product->brand->title}}</td>
                                     <td><img src="{{str_replace('public' , '/storage',$product->image)}}" height="75px"
                                              width="200px"></td>
+                                    <td><a href="{{route('products.discounts.create',$product)}}"
+                                           class="btn btn-sm btn-success">
+                                            @if($product->hasDiscount())
+                                                %{{$product->hasDiscount()}}
+                                                <form
+                                                    action="{{route('products.discounts.destroy',['product'=>$product,'discount'=>$product->discount])}}"
+                                                    method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <input type="submit" value="حذف تخفیف" class="btn btn-sm btn-danger">
+                                                </form>
+                                            @endif
+                                            @if(!$product->hasDiscount())
+                                                ایجاد تخفیف
+                                            @endif
+                                        </a>
                                     <td><a href="{{route('gallery.create',$product)}}" class="btn btn-sm btn-warning">گالری</a>
                                     <td><a href="{{route('products.edit',$product)}}" class="btn btn-sm btn-primary">ویرایش</a>
                                     </td>
