@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CategoryRequest;
-use App\Models\Category;
+use App\Http\Requests\ProductRequest;
+use App\Http\Requests\PropertyRequest;
+use App\Models\Property;
 use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class PropertyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('Admin.categories.index', [
-            'categories' => Category::all()
+        return view('Admin.properties.index',[
+            'properties' => Property::all()
         ]);
     }
 
@@ -28,37 +29,34 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('Admin.categories.create', [
-            'categories' => Category::all(),
-            'propertyGroups'=>PropertyGroup::all(),
+        return view('Admin.properties.create',[
+            'propertyGroups' => PropertyGroup::all()
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function store(CategoryRequest $request)
+    public function store(PropertyRequest $request)
     {
-        $category = Category::query()->create([
+        $id=$request->get('property_group_id');
+        Property::query()->create([
             'title' => $request->get('title'),
-            'category_id' => $request->get('category_id')
+            'property_group_id' => $id
         ]);
-
-        $category->propertyGroup()->attach($request->get('property_groups'));
-
-        return redirect(route('categories.index'));
+        return redirect(route('properties.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Category $category
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Property $property)
     {
         //
     }
@@ -66,47 +64,42 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Category $category
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Property $property)
     {
-        return view('Admin.categories.edit' ,[
-            'category' => $category,
-            'categories' => Category::all(),
-            'propertyGroups'=>PropertyGroup::all(),
+        return view('Admin.properties.edit',[
+            'propertyGroups' =>PropertyGroup::all(),
+            'property' =>$property
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Category $category
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Property $property)
     {
-        $category->update([
+        $property->update([
             'title' => $request->get('title'),
-            'category_id' => $request->get('category_id')
+            'property_group_id' => $request->get('property_group_id')
         ]);
-
-
-        $category->propertyGroup()->sync($request->get('property_groups'));
-        return redirect(route('categories.index'));
+        return redirect(route('properties.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Category $category
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function destroy(Category $category)
+    public function destroy(Property $property)
     {
-        $category->propertyGroup()->detach();
-        $category->delete();
-        return redirect(route('categories.index'));
+        $property->delete();
+        return redirect(route('properties.index'));
     }
 }

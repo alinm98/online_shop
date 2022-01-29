@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PropertyGroup extends Model
+class Property extends Model
 {
     use HasFactory;
 
     protected $fillable=[
-        'title'
+        'title' , 'property_group_id'
     ];
 
-    public function category()
+    public function propertyGroup()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(PropertyGroup::class);
     }
 }

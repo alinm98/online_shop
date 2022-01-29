@@ -28,12 +28,27 @@
                                         <option disabled selected>---انخاب دسته والد---</option>
                                         @foreach($categories as $value)
                                             <option value="{{$value->id}}"
-                                            @if(optional($category->parent)->id == $value->id)
-                                                selected
-                                            @endif
+                                                    @if(optional($category->parent)->id == $value->id)
+                                                    selected
+                                                @endif
                                             >{{$value->title}}</option>
                                         @endforeach
                                     </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <label>انتخاب گروه ویژگی ها</label><br>
+                                        @foreach($propertyGroups as $propertyGroup)
+                                            <input class="form-check-input" name="property_groups[]" type="checkbox"
+                                                   value="{{$propertyGroup->id}}"
+                                                   @if($category->hasPropertyGroup($propertyGroup))
+                                                      checked
+                                                   @endif
+                                            >
+                                            <label class="form-check-label col-sm-2">{{$propertyGroup->title}}</label>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->

@@ -30,6 +30,18 @@
                                         @endforeach
                                     </select>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <label>انتخاب گروه ویژگی ها</label><br>
+                                        @foreach($propertyGroups as $propertyGroup)
+                                            <input class="form-check-input" name="property_groups[]" type="checkbox"
+                                                   value="{{$propertyGroup->id}}">
+                                            <label class="form-check-label col-sm-2">{{$propertyGroup->title}}</label>
+                                        @endforeach
+                                    </div>
+                                </div>
+
                             </div>
                             <!-- /.card-body -->
                             @if(count($errors->all()) > 0)
