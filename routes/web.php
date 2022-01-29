@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PropertyGroupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,7 +34,8 @@ Route::delete('/gallery/{gallery}/destroy' , [GalleryController::class,'destroy'
 
 Route::resource('/categories' , CategoryController::class);
 Route::resource('/brands' , BrandController::class);
-Route::resource('products',ProductController::class);
-Route::resource('products.discounts',DiscountController::class);
+Route::resource('/products',ProductController::class);
+Route::resource('/products.discounts',DiscountController::class);
+Route::resource('/propertyGroups',PropertyGroupController::class);
 
 
