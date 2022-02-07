@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use function collect;
+use function redirect;
+use function view;
 
 class ProductPropertyController extends Controller
 {

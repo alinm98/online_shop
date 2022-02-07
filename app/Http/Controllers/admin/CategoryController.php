@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
+use function redirect;
+use function view;
 
 class CategoryController extends Controller
 {

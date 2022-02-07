@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DiscountController;
-use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductPropertyController;
-use App\Http\Controllers\PropertyController;
-use App\Http\Controllers\PropertyGroupController;
+use App\Http\Controllers\admin\BrandController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\DiscountController;
+use App\Http\Controllers\admin\GalleryController;
+use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\ProductPropertyController;
+use App\Http\Controllers\admin\PropertyController;
+use App\Http\Controllers\admin\PropertyGroupController;
 use Illuminate\Support\Facades\Route;
 
 /*

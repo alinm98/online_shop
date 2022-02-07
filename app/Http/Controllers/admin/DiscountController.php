@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Requests\DiscountRequest;
 use App\Models\Discount;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use function redirect;
+use function view;
 
 class DiscountController extends Controller
 {

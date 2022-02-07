@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Http\Requests\PropertyGroupsRequest;
+use App\Http\Requests\PropertyRequest;
+use App\Models\Property;
 use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
+use function redirect;
+use function view;
 
-class PropertyGroupController extends Controller
+class PropertyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +18,8 @@ class PropertyGroupController extends Controller
      */
     public function index()
     {
-        return view('Admin.propertyGroups.index',[
-            'propertyGroups' => PropertyGroup::all()
+        return view('Admin.properties.index',[
+            'properties' => Property::all()
         ]);
     }
 
@@ -27,7 +30,9 @@ class PropertyGroupController extends Controller
      */
     public function create()
     {
-        return view('Admin.propertyGroups.create');
+        return view('Admin.properties.create',[
+            'propertyGroups' => PropertyGroup::all()
+        ]);
     }
 
     /**
@@ -36,21 +41,23 @@ class PropertyGroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function store(PropertyGroupsRequest $request)
+    public function store(PropertyRequest $request)
     {
-        PropertyGroup::query()->create([
-            'title' => $request->get('title')
+        $id=$request->get('property_group_id');
+        Property::query()->create([
+            'title' => $request->get('title'),
+            'property_group_id' => $id
         ]);
-        return redirect(route('propertyGroups.index'));
+        return redirect(route('properties.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PropertyGroup  $propertyGroup
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function show(PropertyGroup $propertyGroup)
+    public function show(Property $property)
     {
         //
     }
@@ -58,13 +65,14 @@ class PropertyGroupController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PropertyGroup  $propertyGroup
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(PropertyGroup $propertyGroup)
+    public function edit(Property $property)
     {
-        return view('Admin.propertyGroups.edit',[
-            'propertyGroup' =>$propertyGroup
+        return view('Admin.properties.edit',[
+            'propertyGroups' =>PropertyGroup::all(),
+            'property' =>$property
         ]);
     }
 
@@ -72,26 +80,27 @@ class PropertyGroupController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PropertyGroup  $propertyGroup
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, PropertyGroup $propertyGroup)
+    public function update(Request $request, Property $property)
     {
-        $propertyGroup->update([
-            'title'=>$request->get('title')
+        $property->update([
+            'title' => $request->get('title'),
+            'property_group_id' => $request->get('property_group_id')
         ]);
-        return redirect(route('propertyGroups.index'));
+        return redirect(route('properties.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PropertyGroup  $propertyGroup
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function destroy(PropertyGroup $propertyGroup)
+    public function destroy(Property $property)
     {
-        $propertyGroup->delete();
-        return redirect(route('propertyGroups.index'));
+        $property->delete();
+        return redirect(route('properties.index'));
     }
 }

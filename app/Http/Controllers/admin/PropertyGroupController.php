@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Http\Requests\BrandsRequest;
-use App\Models\Brand;
+use App\Http\Requests\PropertyGroupsRequest;
+use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use function redirect;
+use function view;
 
-class BrandController extends Controller
+class PropertyGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view('Admin.brands.index', [
-            'brands' => Brand::all()
+        return view('Admin.propertyGroups.index',[
+            'propertyGroups' => PropertyGroup::all()
         ]);
     }
 
@@ -28,33 +29,30 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('Admin.brands.create');
+        return view('Admin.propertyGroups.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function store(BrandsRequest $request)
+    public function store(PropertyGroupsRequest $request)
     {
-        $image = $request->file('image')->store('public/images/brands');
-        Brand::query()->create([
-            'title' => $request->get('title'),
-            'image' => $image
+        PropertyGroup::query()->create([
+            'title' => $request->get('title')
         ]);
-
-        return redirect(route('brands.index'));
+        return redirect(route('propertyGroups.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Brand $brand
+     * @param  \App\Models\PropertyGroup  $propertyGroup
      * @return \Illuminate\Http\Response
      */
-    public function show(Brand $brand)
+    public function show(PropertyGroup $propertyGroup)
     {
         //
     }
@@ -62,45 +60,40 @@ class BrandController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Brand $brand
+     * @param  \App\Models\PropertyGroup  $propertyGroup
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(Brand $brand)
+    public function edit(PropertyGroup $propertyGroup)
     {
-        return view('Admin.brands.edit', [
-            'brand' => $brand
+        return view('Admin.propertyGroups.edit',[
+            'propertyGroup' =>$propertyGroup
         ]);
-
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Brand $brand
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\PropertyGroup  $propertyGroup
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, PropertyGroup $propertyGroup)
     {
-        $image = $request->file('image')->store('public/images/brands');
-        Storage::delete($brand->image);
-        $brand->update([
-            'title' => $request->get('title'),
-            'image' => $image
+        $propertyGroup->update([
+            'title'=>$request->get('title')
         ]);
-
-        return redirect(route('brands.index'));
+        return redirect(route('propertyGroups.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Brand $brand
+     * @param  \App\Models\PropertyGroup  $propertyGroup
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function destroy(Brand $brand)
+    public function destroy(PropertyGroup $propertyGroup)
     {
-        $brand->delete();
-        return redirect(route('brands.index'));
+        $propertyGroup->delete();
+        return redirect(route('propertyGroups.index'));
     }
 }
