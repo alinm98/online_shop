@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductPropertyController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyGroupController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,8 @@ Route::get('panelAdmin' , function (){
 Route::get('/gallery/{product}' , [GalleryController::class,'create'])->name('gallery.create');
 Route::post('/gallery/{product}/store' , [GalleryController::class,'store'])->name('gallery.store');
 Route::delete('/gallery/{gallery}/destroy' , [GalleryController::class,'destroy'])->name('gallery.destroy');
+Route::get('/product/{product}/properties',[ProductPropertyController::class,'index'])->name('product.property.index');
+Route::post('/product/{product}/properties',[ProductPropertyController::class,'store'])->name('product.property.store');
 
 
 Route::resource('/categories' , CategoryController::class);

@@ -16,6 +16,7 @@
                         <form role="form" action="{{route('products.update',$product)}}" method="post"
                               enctype="multipart/form-data">
                             @csrf
+                            @method('PATCH')
                             <div class="card-body">
 
                                 <div class="form-group">

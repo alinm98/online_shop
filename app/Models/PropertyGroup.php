@@ -17,4 +17,9 @@ class PropertyGroup extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function property()
+    {
+        return $this->hasMany(Property::class);
+    }
 }

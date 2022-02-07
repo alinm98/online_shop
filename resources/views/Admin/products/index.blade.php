@@ -19,6 +19,7 @@
                                 <th>تصویر</th>
                                 <th>تخفیف</th>
                                 <th>گالری</th>
+                                <th>ویژگی</th>
                                 <th>ویرایش</th>
                                 <th>حذف</th>
                             </tr>
@@ -50,6 +51,7 @@
                                             @endif
                                         </a>
                                     <td><a href="{{route('gallery.create',$product)}}" class="btn btn-sm btn-warning">گالری</a>
+                                    <td><a href="{{route('product.property.index',$product)}}" class="btn btn-sm btn-secondary">ویژگی</a>
                                     <td><a href="{{route('products.edit',$product)}}" class="btn btn-sm btn-primary">ویرایش</a>
                                     </td>
                                     <td>
