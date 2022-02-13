@@ -176,7 +176,7 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img
-                            src="/admin/https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g"
+                            src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g"
                             class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
@@ -343,7 +343,7 @@
 <!-- jQuery -->
 <script src="/admin/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="/admin/https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
@@ -351,7 +351,7 @@
 <!-- Bootstrap 4 -->
 <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Morris.js charts -->
-<script src="/admin/https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="/admin/plugins/morris/morris.min.js"></script>
 <!-- Sparkline -->
 <script src="/admin/plugins/sparkline/jquery.sparkline.min.js"></script>
@@ -361,7 +361,7 @@
 <!-- jQuery Knob Chart -->
 <script src="/admin/plugins/knob/jquery.knob.js"></script>
 <!-- daterangepicker -->
-<script src="/admin/https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script src="/admin/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
 <script src="/admin/plugins/datepicker/bootstrap-datepicker.js"></script>

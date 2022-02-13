@@ -17,6 +17,11 @@ class Category extends Model
         return $this->belongsTo(Category::class , 'category_id');
     }
 
+    public function children()
+    {
+        return $this->hasMany(Category::class , 'category_id');
+    }
+
     public function propertyGroup()
     {
         return $this->belongsToMany(PropertyGroup::class);
@@ -25,5 +30,10 @@ class Category extends Model
     public function hasPropertyGroup(PropertyGroup $propertyGroup)
     {
         return $this->propertyGroup()->where('property_group_id' , $propertyGroup->id)->exists();
+    }
+
+    public function getParents()
+    {
+        return Category::query()->where('category_id' , null)->get();
     }
 }

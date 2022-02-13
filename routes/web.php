@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductPropertyController;
 use App\Http\Controllers\admin\PropertyController;
 use App\Http\Controllers\admin\PropertyGroupController;
+use App\Http\Controllers\client\homeProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Client.layout.master');
-});
+Route::get('/',[\App\Http\Controllers\client\homeIndexController::class,'home'])->name('home.index');
 
 Route::get('panelAdmin' , function (){
     return view('Admin.index');
@@ -43,4 +42,7 @@ Route::resource('/products.discounts',DiscountController::class);
 Route::resource('/propertyGroups',PropertyGroupController::class);
 Route::resource('/properties',PropertyController::class);
 
-
+/*Client Routing*/
+Route::prefix('/client')->name('home.')->group(function (){
+    Route::get('/product/{product}' , [homeProductController::class,'show'])->name('product.show');
+});

@@ -67,5 +67,12 @@ class Product extends Model
             ->withTimestamps();
     }
 
+    public function getDiscount()
+    {
+        $price = $this->price;
+        $discount = $this->discount->value;
+        return $price - $price*$discount/100;
+    }
+
 
 }
