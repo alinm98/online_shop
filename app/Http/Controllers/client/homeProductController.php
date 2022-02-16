@@ -10,10 +10,10 @@ class homeProductController extends Controller
 {
     public function show(Product $product)
     {
-
         return view('Client.products.single', [
             'product' => $product,
             'gallery' => $product->gallery,
+            'propertyGroups' => $product->category->propertyGroup,
         ]);
     }
 }

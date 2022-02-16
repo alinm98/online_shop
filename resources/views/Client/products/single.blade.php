@@ -114,27 +114,7 @@
                                         <span>حافظه داخلی: </span>
                                         <span> 256 گیگابایت </span>
                                     </li>
-                                    <li>
-                                        <span>شبکه های ارتباطی: </span>
-                                        <span> 2G,3G,4G </span>
-                                    </li>
-                                    <li>
-                                        <span>رزولوشن عکس: </span>
-                                        <span> 12.0 مگاپیکسل</span>
-                                    </li>
-                                    <li>
-                                        <span>تعداد سیم کارت: </span>
-                                        <span> تک </span>
-                                    </li>
-                                    <li>
-                                        <span>ویژگی‌های خاص: </span>
-                                        <span> مقاوم در برابر آب
-                                                مناسب عکاسی
-                                                مناسب عکاسی سلفی
-                                                مناسب بازی
-                                                مجهز به حس‌گر تشخیص چهره
-                                            </span>
-                                    </li>
+
                                 </ul>
                                 <div class="sum-more">
                                         <span class="show-more btn-link-border">
@@ -144,9 +124,6 @@
                                             - بستن
                                         </span>
                                 </div>
-                            </div>
-                            <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
-                                <h2>کد محصول:225566</h2>
                             </div>
                             <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
                                 <h2>قیمت : <span class="price">
@@ -189,8 +166,6 @@
                             <a class="ah-tab-item" href=""><i class="mdi mdi-format-list-checks"></i>مشخصات</a>
                             <a class="ah-tab-item" href=""><i
                                     class="mdi mdi-comment-text-multiple-outline"></i>نظرات کاربران</a>
-                            <a class="ah-tab-item" href=""><i class="mdi mdi-comment-question-outline"></i>پرسش و
-                                پاسخ</a>
                         </div>
                     </div>
                     <div class="ah-tab-content-wrapper product-info px-4 dt-sl">
@@ -205,26 +180,9 @@
                             </div>
                             <div class="description-product dt-sl mt-3 mb-3">
                                 <div class="container">
-                                    <p>سامسونگ سال 2019 را با متنوع کردن هرچند بیشتر سری گوشی‌های A خود آغاز کرد.
-                                        این سری از تولیدات سامسونگ به داشتن صفحه‌نمایش بسیار با کیفیت AMOLED و
-                                        دوربین‌هایی با امکانات بالا شهرت دارند. در این میان به نظر می‌رسد گوشی
-                                        «Galaxy A50» حرف‌های زیادی در هر دوی این زمینه‌ها داشته باشد. گوشی موبایل
-                                        Galaxy A50 با صفحه‌نمایش سوپر آمولد طراحی شده است و ظاهر زیبایی دارد.
-                                        سامسونگ تلاش کرده است حاشیه را در این تولید جدید خود تا حد امکان کم کند. این
-                                        گوشی قاب پشتی از جنس پلاستیک دارد و قاب جلویی آن را شیشه پوشانده که البته
-                                        جلوه‌ی زیبایی به گوشی داده است. این محصول سامسونگ با جدیدترین نسخه از
-                                        سیستم‌عامل اندروید (Pie) روانه بازار شده است تا از هر نظر گوشی مدرن به‌حساب
-                                        بیاید. صفحه‌نمایش استفاده‌شده در این گوشی 6.4 اینچ با رزولوشن FullHD+ است که
-                                        با استفاده از فناوری Super AMOLED و پنل OLED تصاویر شفاف و بی‌نظیری را به
-                                        نمایش می‌گذارد. این صفحه‌نمایش در هر اینچ 403 پیکسل را نشان می‌دهد که این
+                                    <p> که این
                                         یعنی جزئیات و وضوح تصویر عالی است. همچنین روکش این نمایشگر لایه‌ی محافظ
-                                        Corning Gorilla Glass است که از خط‌وخش و ضربه جلوگیری می‌کند. تراشه‌ی این
-                                        محصول، Exynos 9610 از تراشه‌های 10 نانومتری سامسونگ است که به همراه 4
-                                        گیگابایت رم عرضه می‌شود. این تراشه یکی از قوی‌ترین تراشه‌های موجود در حال
-                                        حاضر است و برای انجام بازی‌های سنگین و بازکردن چندین برنامه به صورت هم‌زمان
-                                        و تماشای ویدئو کاملا مناسب است و کم نمی‌آورد. تراشه‌ی گرافیکی Mali-G72 MP3
-                                        هم برای پخش ویدئو و بازی مناسب است. این گوشی در دو ظرفیت 64 و 128 گیگابایتی
-                                        عرضه شده است و با استفاده از یک کارت حافظه‌ی جانبی قادر خواهید بود حافظه
+                                        Corning Gorilla Glass ا بود حافظه
                                         داخلی را تا یک ترابایت دیگر هم افزایش دهید. دوربین اصلی A50 سنسور
                                         25مگاپیکسلی دارد و از نوع عریض (Wide) است. دو سنسور 8 و 5 مگاپیکسلی دیگر هم
                                         در کنار این دوربین اصلی مجموعه دوربین‌های قاب پشتی A50 را تشکیل داده‌اند.
@@ -303,224 +261,30 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingTwo">
-                                        <h5 class="mb-0">
-                                            <button class="btn collapsed" type="button" data-toggle="collapse"
-                                                    data-target="#collapseTwo" aria-expanded="false"
-                                                    aria-controls="collapseTwo">
-                                                نمایش‌گر (رنگی‌تر از همیشه)
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                         data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <img src="assets/img/single-product/1429172.jpg" alt="">
-                                            <p>
-                                                اولین تجربه‌ی استفاده از پنل‌های اولد سامسونگ
-                                                روی گوشی‌های اپل، نتیجه‌ای جذاب برای همه به
-                                                همراه آورده است. مهندسی
-                                                افزوده‌ی اپل روی این پنل‌ها باعث شده تا غلظت
-                                                رنگ‌ها کاملا متعادل باشد، نه مثل آیفون 8 کم باشد
-                                                و نه مثل گلکسی S8 اشباع
-                                                باشد تا از حد تعادل خارج شود. اپل این نمایشگر را
-                                                Super Retina نامیده تا ثابت کند، بهترین نمایشگر
-                                                موجود در دنیا را طراحی
-                                                کرده و از آن روی iPhone X استفاده کرده است.
-                                            </p>
-                                            <img src="assets/img/single-product/1436228.jpg" alt="">
-                                            <p>
-                                                این نمایشگر در مقایسه با پنل‌های معمولی، مصرف
-                                                انرژی کمتری دارد و این به خاطر استفاده از
-                                                پنل‌های اولد است؛ اما این مشخصه
-                                                باعث نشده تا نور نمایشگر مثل محصولات دیگری که
-                                                پنل اولد دارند کم باشد؛ بلکه این پنل در هر
-                                                شرایطی بهترین بازده‌ی ممکن را
-                                                دارد. استفاده زیر نور شدید خورشید یا تاریکی مطلق
-                                                فرقی ندارد، آیفون 10 خود را با شرایط تطبیق
-                                                می‌دهد. این تمام ماجرا نیست.
-                                                در نمایشگر آیفون 10 نقطه‌ی حساس به تراز سفیدی
-                                                نور محیط قرار داده ‌شده‌اند تا آیفون 10 را با
-                                                شرایط نوری محیطی که از آن
-                                                استفاده می‌کنید، هماهنگ کند و تراز سفیدی نمایشگر
-                                                را به‌صورت خودکار تغییر دهد. این فناوری که با
-                                                نام True-Tone نام‌گذاری
-                                                شده، کمک می‌کند رنگ‌های نمایشگر در هر نوری
-                                                نزدیک‌ترین غلظت و تراز سفیدی ممکن را به رنگ‌های
-                                                طبیعی داشته باشد.
-                                            </p>
-                                            <img src="assets/img/single-product/1406339.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h5 class="mb-0">
-                                            <button class="btn collapsed" type="button" data-toggle="collapse"
-                                                    data-target="#collapseThree" aria-expanded="false"
-                                                    aria-controls="collapseThree">
-                                                طراحی و ساخت (قربانی کردن سنت برای امروزی شدن)
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                         data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <img src="assets/img/single-product/1398679.jpg" alt="">
-                                            <p>
-                                                اپل پا جای پای سامسونگ گذاشته و برای داشتن ظاهری
-                                                امروزی و استفاده از جدیدترین فناوری‌های روز، سنت
-                                                ده‌ساله‌ی طراحی
-                                                گوشی‌هایش را شکسته است. دیگر کلید خانه‌ای وجود
-                                                ندارد و تمام قاب جلویی را نمایشگر پر کرده است.
-                                                حتی نمایشگر هم برای
-                                                استفاده از فناوری تشخیص چهره قربانی شده و قسمت
-                                                بالایی آن بریده ‌شده است و لبه‌ی بالایی آن در
-                                                مقایسه با هر گوشی دیگری که
-                                                تا به امروز دیده بودیم، حالت متفاوتی دارد. ابعاد
-                                                iPhone X کمی بزرگ‌تر از ابعاد آیفون 6 است؛ اما
-                                                نمایشگرش حدود یک اینچ
-                                                بزرگ‌تر از آیفون 6 است. این نشان می‌دهد، فاصله‌ی
-                                                لبه‌ها تا نمایشگر تا جای ممکن از طراحی جدیدترین
-                                                آیفون اپل حذف‌ شده‌
-                                                است.
-                                            </p>
-                                            <img src="assets/img/single-product/1441226.jpg" alt="">
-                                            <p>
-                                                زبان طراحی جدید، آیفون 10 را به‌طور عجیبی به سمت
-                                                تبدیل‌شدنش به یک کالای لوکس پیش برده است. نگاه
-                                                کلی به طراحی این گوشی
-                                                نشان می‌دهد، اپل سنت‌شکنی کرده و کالایی تولید
-                                                کرده تا از هر نظر با نسخه‌های قبلی آیفون متفاوت
-                                                باشد. استفاده از شیشه برای
-                                                قاب پشتی، فلزی براق برای قاب اصلی، حذف کلید خانه
-                                                و در انتها استفاده از نمایشگری بزرگ مواردی هستند
-                                                که نشان‌دهنده‌ی تفاوت
-                                                iPhone X با نسخه‌های قبلی آیفون است. تمام سطوح
-                                                آیفون براق و صیقلی طراحی ‌شده‌اند و تنها برآمدگی
-                                                آیفون جدید مربوط به
-                                                مجموعه‌ی دوربین آن می‌شود که حدود یک میلی‌متری
-                                                از قاب پشتی بیرون زده است. برخلاف آیفون 8پلاس،
-                                                دوربین‌های روی قاب پشتی به
-                                                حالت عمودی روی قاب پشتی قرار گرفته‌اند.
-                                            </p>
-                                            <img src="assets/img/single-product/1418947.jpg" alt="">
-                                            <p>
-                                                آیفون جدید در دو رنگ خاکستری و نقره‌ای راهی
-                                                بازار شده که در هر دو مدل قاب جلویی به رنگ مشکی
-                                                است و این بابت استفاده از
-                                                سنسورهای متعدد در بخش بالایی نمایشگر است. برخلاف
-                                                تمام آیفون‌های فلزی که تا امروز ساخته‌ شده‌اند،
-                                                قاب اصلی از فلزی براق
-                                                ساخته ‌شده تا زیر نور خودنمایی کند.
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="ah-tab-content params dt-sl">
                             <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
-                                <h2>مشخصات فنی</h2>
                             </div>
-                            <div class="product-title dt-sl mb-3">
-                                <h1>گوشی موبایل سامسونگ مدل Galaxy A50 SM-A505F/DS دو سیم کارت ظرفیت 128گیگابایت
-                                </h1>
-                                <h3>Samsung Galaxy A50 SM-A505F/DS Dual SIM 128GB Mobile Phone</h3>
-                            </div>
+                            @foreach($propertyGroups as $propertyGroup)
                             <section>
-                                <h3 class="params-title">مشخصات کلی</h3>
+                                <h3 class="params-title">{{$propertyGroup->title}}</h3>
                                 <ul class="params-list">
+                                    @foreach($propertyGroup->property as $property)
                                     <li>
                                         <div class="params-list-key">
-                                            <span class="d-block">ابعاد</span>
+                                            <span class="d-block">{{$property->title}}</span>
                                         </div>
                                         <div class="params-list-value">
                                                 <span class="d-block">
-                                                    7.7 × 70.9 × 143.6 میلی‌متر
-                                                </span>
-                                        </div>
-                                        <div class="params-list-value">
-                                                <span class="d-block">
-                                                    7.7 × 70.9 × 143.6 میلی‌متر
-                                                </span>
-                                        </div>
-                                        <div class="params-list-value">
-                                                <span class="d-block">
-                                                    7.7 × 70.9 × 143.6 میلی‌متر
+                                                    {{$property->getPropertyValue($product)}}
                                                 </span>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="params-list-key">
-                                            <span class="d-block">توضیحات سیم کارت</span>
-                                        </div>
-                                        <div class="params-list-value">
-                                                <span class="d-block">
-                                                    سایز نانو (8.8 × 12.3 میلی‌متر)
-                                                </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="params-list-key">
-                                            <span class="d-block">وزن</span>
-                                        </div>
-                                        <div class="params-list-value">
-                                                <span class="d-block">
-                                                    174 گرم
-                                                </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="params-list-key">
-                                            <span class="d-block">ویژگی‌های خاص</span>
-                                        </div>
-                                        <div class="params-list-value">
-                                                <span class="d-block">
-                                                    مقاوم در برابر آب , مناسب عکاسی , مناسب عکاسی
-                                                    سلفی , مناسب بازی , مجهز به حس‌گر تشخیص چهره
-                                                </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="params-list-key">
-                                            <span class="d-block">تعداد سیم کارت</span>
-                                        </div>
-                                        <div class="params-list-value">
-                                                <span class="d-block">
-                                                    تک سیم کارت
-                                                </span>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </section>
-                            <section>
-                                <h3 class="params-title">پردازنده</h3>
-                                <ul class="params-list">
-                                    <li>
-                                        <div class="params-list-key">
-                                            <span class="d-block">تراشه</span>
-                                        </div>
-                                        <div class="params-list-value">
-                                                <span class="d-block">
-                                                    Apple A11 Bionic Chipset
-                                                </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="params-list-key">
-                                            <span class="d-block">نوع پردازنده</span>
-                                        </div>
-                                        <div class="params-list-value">
-                                                <span class="d-block">
-                                                    64 بیت
-                                                </span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </section>
+                            @endforeach
                         </div>
                         <div class="ah-tab-content comments-tab dt-sl">
                             <div class="section-title title-wide no-after-title-wide mb-0 dt-sl">
