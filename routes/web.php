@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\ProductPropertyController;
 use App\Http\Controllers\admin\PropertyController;
 use App\Http\Controllers\admin\PropertyGroupController;
 use App\Http\Controllers\admin\RoleController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\homeIndexController;
 use App\Http\Controllers\client\homeProductController;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,7 @@ Route::resource('/products.discounts',DiscountController::class);
 Route::resource('/propertyGroups',PropertyGroupController::class);
 Route::resource('/properties',PropertyController::class);
 Route::resource('/roles',RoleController::class);
+Route::resource('/users',UserController::class);
 
 /*Client Routing*/
 Route::prefix('/client')->name('home.')->group(function (){
