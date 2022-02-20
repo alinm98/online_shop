@@ -77,20 +77,32 @@
                                     <i class="mdi mdi-account-circle-outline"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-sm dropdown-menu-left">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="mdi mdi-account-card-details-outline"></i>پروفایل
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <span class="float-left badge badge-dark">۴</span>
-                                        <i class="mdi mdi-comment-text-outline"></i>پیغام ها
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="mdi mdi-account-edit-outline"></i>ویرایش حساب کاربری
-                                    </a>
-                                    <div class="dropdown-divider" role="presentation"></div>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="mdi mdi-logout-variant"></i>خروج
-                                    </a>
+                                    @if(!auth()->check())
+                                        <a class="dropdown-item" href="{{route('home.user.showLogin')}}">
+                                            <i class="mdi mdi-account-card-details-outline"></i>ورود
+                                        </a>
+                                        <a class="dropdown-item" href="{{route('home.user.signup')}}">
+                                            <i class="mdi mdi-account-card-details-outline"></i>ثبت نام
+                                        </a>
+
+                                    @endif
+
+                                    @if(auth()->check())
+                                        <a class="dropdown-item" href="#">
+                                            <i class="mdi mdi-account-card-details-outline"></i>پروفایل
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <span class="float-left badge badge-dark">۴</span>
+                                            <i class="mdi mdi-comment-text-outline"></i>پیغام ها
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="mdi mdi-account-edit-outline"></i>ویرایش حساب کاربری
+                                        </a>
+                                        <div class="dropdown-divider" role="presentation"></div>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="mdi mdi-logout-variant"></i>خروج
+                                        </a>
+                                    @endif
                                 </div>
                             </li>
                         </ul>
@@ -470,8 +482,8 @@
         <!-- End bottom-header -->
     </header>
     <!-- End header -->
-    @yield('content')
-    <!-- Start footer -->
+@yield('content')
+<!-- Start footer -->
     <footer class="main-footer dt-sl">
         <div class="back-to-top">
             <a href="#"><span class="icon"><i class="mdi mdi-chevron-up"></i></span> <span>بازگشت به

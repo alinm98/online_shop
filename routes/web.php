@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\homeIndexController;
 use App\Http\Controllers\client\homeProductController;
+use App\Http\Controllers\client\homeUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,4 +51,9 @@ Route::resource('/users',UserController::class);
 /*Client Routing*/
 Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/product/{product}' , [homeProductController::class,'show'])->name('product.show');
+    Route::get('/signup',[homeUserController::class,'signup'])->name('user.signup');
+    Route::post('/signup',[homeUserController::class,'signupStore'])->name('user.store');
+    Route::get('/login',[homeUserController::class,'showLogin'])->name('user.showLogin');
+    Route::post('/login',[homeUserController::class,'login'])->name('user.login');
+
 });
