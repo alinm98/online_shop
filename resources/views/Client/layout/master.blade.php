@@ -646,6 +646,9 @@
 <script src="/client/assets/js/vendor/theia-sticky-sidebar.min.js"></script>
 <!-- Main JS File -->
 <script src="/client/assets/js/main.js"></script>
+@yield('script')
+
+
 </body>
 
 </html>

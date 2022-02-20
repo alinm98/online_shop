@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DiscountController;
@@ -58,5 +59,6 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::post('/login',[homeUserController::class,'login'])->name('user.login');
     Route::get('/logout',[homeUserController::class,'logout'])->name('user.logout');
     Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
+    Route::resource('/address' , AddressController::class);
 
 });
