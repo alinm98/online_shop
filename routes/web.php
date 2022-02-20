@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\homeIndexController;
 use App\Http\Controllers\client\homeProductController;
 use App\Http\Controllers\client\homeUserController;
+use App\Http\Controllers\client\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,5 +56,7 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::post('/signup',[homeUserController::class,'signupStore'])->name('user.store');
     Route::get('/login',[homeUserController::class,'showLogin'])->name('user.showLogin');
     Route::post('/login',[homeUserController::class,'login'])->name('user.login');
+    Route::get('/logout',[homeUserController::class,'logout'])->name('user.logout');
+    Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
 
 });

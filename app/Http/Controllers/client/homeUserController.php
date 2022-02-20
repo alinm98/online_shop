@@ -21,6 +21,7 @@ class homeUserController extends Controller
         User::query()->create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
+            'mobile' => $request->get('mobile'),
             'password' => $request->get('password'),
             'role_id' => 2
         ]);
@@ -35,11 +36,17 @@ class homeUserController extends Controller
 
     public function login(ClientLoginRequest $request)
     {
-        $user = User::query()->where('email' , $request->get('email'))->firstOrFail();
-        if ($user->password != $request->get('password')){
-            return redirect()->back()->withErrors(['password'=>'password is not correct']);
+        $user = User::query()->where('email', $request->get('email'))->firstOrFail();
+        if ($user->password != $request->get('password')) {
+            return redirect()->back()->withErrors(['password' => 'password is not correct']);
         }
         \auth()->login($user);
         return redirect(route('home.index'));
+    }
+
+    public function logout()
+    {
+        \auth()->logout();
+        return redirect(route('home.user.showLogin'));
     }
 }

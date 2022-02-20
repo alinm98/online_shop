@@ -29,6 +29,15 @@
                                 <i class="mdi mdi-account-circle-outline"></i>
                             </div>
 
+                            <div class="form-row-title">
+                                <h3>شماره تلفن</h3>
+                            </div>
+                            <div class="form-row with-icon">
+                                <input type="number" class="input-ui pr-2" name="mobile"
+                                       placeholder="0912XXXXXXX">
+                                <i class="mdi mdi-lock-open-variant-outline"></i>
+                            </div>
+
 
                             <div class="form-row-title">
                                 <h3>رمز عبور</h3>
