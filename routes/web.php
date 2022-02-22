@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\PropertyController;
 use App\Http\Controllers\admin\PropertyGroupController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\homeIndexController;
 use App\Http\Controllers\client\homeProductController;
 use App\Http\Controllers\client\homeUserController;
@@ -60,5 +61,8 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/logout',[homeUserController::class,'logout'])->name('user.logout');
     Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
     Route::resource('/address' , AddressController::class);
+    Route::post('/cart/{product}',[CartController::class,'store'])->name('cart.store');
+    Route::get('/cart',[CartController::class,'index'])->name('cart.index');
+    Route::delete('/cart/{cart}',[CartController::class,'destroy'])->name('cart.destroy');
 
 });

@@ -137,23 +137,21 @@
                                             </del>
                                         @endif
                                     </span> </h2>
+                                @if(!empty($product->discount))
                                 <h2><span class="price">
-                                        @if(!empty($product->discount))
+
                                             {{number_format($product->getDiscount())}}                                        تومان
-                                        @endif
-                                    </span> </h2>
+
+                                    </span> </h2>@endif
                             </div>
                             <div class="dt-sl mt-4">
-                                <a href="#" class="btn-primary-cm btn-with-icon">
-                                    <img src="./assets/img/theme/shopping-cart.png" alt="">
-                                    افزودن به سبد خرید
-                                </a>
+                                <form action="{{route('home.cart.store',$product)}}" method="post">
+                                    @csrf
+                                    <input type="submit" class="btn-primary-cm btn-with-icon" value="افزودن به سبد خرید">
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mb-add-to-cart-btn-wrapper">
-                    <a href="#" class="mb-add-to-cart-btn">افزودن به سبد خرید</a>
                 </div>
             </div>
             <div class="dt-sn mb-5 px-0 dt-sl pt-0">
