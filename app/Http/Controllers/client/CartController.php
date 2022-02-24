@@ -98,4 +98,25 @@ class CartController extends Controller
         $cart->delete();
         return redirect()->back();
     }
+
+    public function confirmation()
+    {
+        $carts = auth()->user()->cart;
+        $cost=0;
+        foreach ($carts as $cart){
+            if (empty($cart->product->discount)) {
+                $cost += $cart->product->price;
+            }
+            else{
+                $cost += $cart->product->getDiscount();
+            }
+        }
+        return view('Client.carts.shopping',[
+            'address' => auth()->user()->address[0],
+            'carts' => $carts,
+            'total' => $cost ,
+            'count' => count(auth()->user()->cart) ,
+
+        ]);
+    }
 }

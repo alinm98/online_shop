@@ -16,6 +16,7 @@ use App\Http\Controllers\client\homeIndexController;
 use App\Http\Controllers\client\homeProductController;
 use App\Http\Controllers\client\homeUserController;
 use App\Http\Controllers\client\ProfileController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,5 +65,7 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::post('/cart/{product}',[CartController::class,'store'])->name('cart.store');
     Route::get('/cart',[CartController::class,'index'])->name('cart.index');
     Route::delete('/cart/{cart}',[CartController::class,'destroy'])->name('cart.destroy');
+    Route::get('/cart/confirming',[CartController::class,'confirmation'])->name('cart.confirming');
+    Route::get('/order',[OrderController::class,'store'])->name('order.store');
 
 });

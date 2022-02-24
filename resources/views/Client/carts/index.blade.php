@@ -103,7 +103,7 @@
                                                     class="checkout-summary-price-value-amount">{{number_format($total)}}</span>
                                                 تومان
                                             </div>
-                                            <a href="#" class="mb-2 d-block">
+                                            <a href="{{route('home.cart.confirming')}}" class="mb-2 d-block">
                                                 <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
                                                     <i class="mdi mdi-arrow-left"></i>
                                                     ادامه ثبت سفارش
