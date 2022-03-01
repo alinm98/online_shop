@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Shetabit\Multipay\Invoice;
+use Shetabit\Payment\Facade\Payment;
 use function PHPUnit\Framework\directoryExists;
 
 class OrderController extends Controller
@@ -31,32 +33,49 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector|Payment
+     * @throws \Exception
      */
-    public function store()
+    public function store($total)
     {
-        Order::query()->create([
-            'user_id' => auth()->user()->id
+        $order = Order::query()->create([
+            'user_id' => auth()->user()->id ,
+            'status' => 'wait' ,
         ]);
-        return redirect(route('home.index'));
+
+        $invoice = (new Invoice)->amount($total);
+
+        return Payment::purchase($invoice , function ($driver , $transactionId) use ($order){
+            $order->update([
+                'transaction_id' => $transactionId,
+            ]);
+        })->pay()->render();
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Request $request)
     {
-        //
+        $order = Order::query()->where('transaction_id' , $request->get('Authority'))->first();
+        if ($request->get('Status') == 'OK'){
+            $order->update([
+                'status' => 'OK'
+            ]);
+            return view('Client.carts.success');
+        }
+        return view('Client.carts.failed');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function edit(Order $order)
@@ -67,8 +86,8 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $order)
@@ -79,7 +98,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)

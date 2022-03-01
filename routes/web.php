@@ -66,6 +66,10 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/cart',[CartController::class,'index'])->name('cart.index');
     Route::delete('/cart/{cart}',[CartController::class,'destroy'])->name('cart.destroy');
     Route::get('/cart/confirming',[CartController::class,'confirmation'])->name('cart.confirming');
-    Route::get('/order',[OrderController::class,'store'])->name('order.store');
+    Route::get('/order/{total}',[OrderController::class,'store'])->name('order.store');
+
+
 
 });
+
+Route::get('/order/payment/callback' ,[OrderController::class,'show'])->name('payment.callback');

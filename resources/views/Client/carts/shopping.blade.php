@@ -92,7 +92,7 @@
                                 <span class="checkout-summary-price-value-amount">{{$total}}</span>
                                 تومان
                             </div>
-                            <a href="{{route('home.order.store')}}" class="mb-2 d-block">
+                            <a href="{{route('home.order.store',$total)}}" class="mb-2 d-block">
                                 <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0 pl-0">
                                     <i class="mdi mdi-arrow-left"></i>
                                     تایید و ادامه ثبت سفارش
