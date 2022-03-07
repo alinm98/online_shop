@@ -129,7 +129,7 @@
 
                         @foreach($categories_parents as $categories_parent)
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-3">
-                                <a class="nav-link" href="#">{{$categories_parent->title}}</a>
+                                <a class="nav-link" href="{{route('home.product.search.index')}}">{{$categories_parent->title}}</a>
                                 <ul class="sub-menu nav">
 
                                     @foreach($categories_parent->children as $category)

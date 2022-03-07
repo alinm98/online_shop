@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\client;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\AddressRequest;
 use App\Models\Address;
 use Illuminate\Http\Request;
-use function Sodium\add;
+use function auth;
+use function redirect;
+use function view;
 
 class AddressController extends Controller
 {

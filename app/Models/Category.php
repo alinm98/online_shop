@@ -36,4 +36,18 @@ class Category extends Model
     {
         return Category::query()->where('category_id' , null)->get();
     }
+
+    public function getSubParents()
+    {
+
+        $parents = (new \App\Models\Category)->getParents();
+        foreach ($parents as $value){
+            foreach ($value->children as $val){
+                foreach ($val->children as $category){
+                    $data[] = $category;
+                }
+            }
+        }
+        return $data;
+    }
 }

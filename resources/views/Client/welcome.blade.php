@@ -164,14 +164,13 @@
                             <div class="col-12">
                                 <div class="section-title text-sm-title title-wide no-after-title-wide">
                                     <h2>پر فروش ترینها</h2>
-                                    <a href="#">مشاهده همه</a>
+                                    <a href="{{route('home.product.search.index')}}">مشاهده همه</a>
                                 </div>
                             </div>
 
                             <!-- Start Product-Slider -->
                             <div class="col-12 px-res-0">
                                 <div class="product-carousel carousel-md owl-carousel owl-theme">
-
                                     @foreach($products as $product)
                                         <div class="item">
                                             <div class="product-card">
