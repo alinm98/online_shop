@@ -4,6 +4,7 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use Shetabit\Multipay\Invoice;
 use Shetabit\Payment\Facade\Payment;
@@ -15,11 +16,13 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('Admin.orders.index',[
+            'orders' => Order::all()
+        ]);
     }
 
     /**
@@ -45,7 +48,13 @@ class OrderController extends Controller
             'user_id' => auth()->user()->id ,
             'status' => 'wait' ,
         ]);
-
+        foreach (auth()->user()->cart as $cart){
+            OrderDetail::query()->create([
+                'product_id' => $cart->product_id,
+                'order_id' => $order->id,
+                'total' => $total,
+            ]);
+        }
         $invoice = (new Invoice)->amount($total);
 
         return Payment::purchase($invoice , function ($driver , $transactionId) use ($order){
@@ -101,10 +110,11 @@ class OrderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Order $order
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return redirect()->back();
     }
 }

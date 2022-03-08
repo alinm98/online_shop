@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DiscountController;
 use App\Http\Controllers\admin\GalleryController;
+use App\Http\Controllers\admin\OrderDetailController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductPropertyController;
 use App\Http\Controllers\admin\PropertyController;
@@ -51,7 +52,9 @@ Route::resource('/propertyGroups',PropertyGroupController::class);
 Route::resource('/properties',PropertyController::class);
 Route::resource('/roles',RoleController::class);
 Route::resource('/users',UserController::class);
-
+Route::get('/order' ,[OrderController::class,'index'])->name('order.index');
+Route::delete('/order/{order}',[OrderController::class,'destroy'])->name('order.destroy');
+Route::get('/orderDetail/{order}',[OrderDetailController::class,'index'])->name('orderDetail.index');
 /*Client Routing*/
 Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/product/{product}' , [homeProductController::class,'show'])->name('product.show');
