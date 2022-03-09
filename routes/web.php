@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\AddressController;
 use App\Http\Controllers\client\CartController;
+use App\Http\Controllers\client\CommentController;
 use App\Http\Controllers\client\homeIndexController;
 use App\Http\Controllers\client\homeProductController;
 use App\Http\Controllers\client\homeUserController;
@@ -72,7 +73,8 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/order/{total}',[OrderController::class,'store'])->name('order.store');
     Route::get('/search', [homeProductController::class,'index'])->name('product.search.index');
     Route::post('/search' , [homeProductController::class,'search'])->name('product.search');
-
+    Route::get('/comment/{product}',[CommentController::class,'index'])->name('comment.index');
+    Route::post('/comment/{product}',[CommentController::class,'store'])->name('comment.store');
 
 
 
