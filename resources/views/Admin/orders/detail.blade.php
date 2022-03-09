@@ -17,6 +17,14 @@
                                     class="font-weight-bold text-uppercase"> شناسه پرداخت : </span><span
                                     class="ml-1">{{(new \App\Models\Order)->transaction($order->transaction_id)}}</span>
                             </div>
+                            <div class="billed"><span
+                                    class="font-weight-bold text-uppercase">شماره تلفن : </span><span
+                                    class="ml-1">{{$order->user->mobile}}</span>
+                            </div>
+                            <div class="billed"><span
+                                    class="font-weight-bold text-uppercase">آدرس : </span><span
+                                    class="ml-1">{{$order->user->address[0]->address}}</span>
+                            </div>
                         </div>
                     </div>
                     <div class="mt-3">
@@ -52,7 +60,17 @@
                         </div>
                     </div>
                     <div class="text-right mb-3">
-                        <button class="btn btn-danger btn-sm mr-5" type="button">Pay Now</button>
+                        @if($order->confirm == null)
+                            <form action="{{route('order.update',$order)}}" method="post">
+                                @csrf
+                                @method('PATCH')
+                                <input type="submit" value="تایید و ارسال"
+                                       class="btn btn-success btn-sm mr-5 text-white">
+                            </form>
+                        @endif
+                        <br>
+                        <a class="btn btn-danger btn-sm mr-5 text-white" href="{{route('order.destroy',$order)}}">حذف
+                            سفارش</a>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,9 @@ Route::resource('/properties',PropertyController::class);
 Route::resource('/roles',RoleController::class);
 Route::resource('/users',UserController::class);
 Route::get('/order' ,[OrderController::class,'index'])->name('order.index');
+Route::get('/order/confirm',[OrderController::class,'confirm'])->name('order.confirm');
 Route::delete('/order/{order}',[OrderController::class,'destroy'])->name('order.destroy');
+Route::patch('/order/{order}',[OrderController::class,'update'])->name('order.update');
 Route::get('/orderDetail/{order}',[OrderDetailController::class,'index'])->name('orderDetail.index');
 /*Client Routing*/
 Route::prefix('/client')->name('home.')->group(function (){

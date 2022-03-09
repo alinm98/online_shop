@@ -371,7 +371,13 @@
                                 <li class="nav-item">
                                     <a href="{{route('order.index')}}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>لیست</p>
+                                        <p>لیست در انتظار ارسال</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('order.confirm')}}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>لیست ارسال شده ها</p>
                                     </a>
                                 </li>
                             </ul>

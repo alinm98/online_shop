@@ -21,7 +21,7 @@ class OrderController extends Controller
     public function index()
     {
         return view('Admin.orders.index',[
-            'orders' => Order::all()
+            'orders' => Order::query()->where('confirm' , null)->get(),
         ]);
     }
 
@@ -97,13 +97,15 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
      * @param \App\Models\Order $order
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Order $order)
+    public function update( Order $order)
     {
-        //
+        $test = $order->update([
+            'confirm' => 1
+        ]);
+        return redirect(route('order.index'));
     }
 
     /**
@@ -114,7 +116,17 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
+        foreach ($order->detail as $detail){
+            $detail->delete();
+        }
         $order->delete();
         return redirect()->back();
+    }
+
+    public function confirm()
+    {
+        return view('Admin.orders.confirmed',[
+            'orders' => Order::query()->where('confirm' , 1)->get(),
+        ]);
     }
 }

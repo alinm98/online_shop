@@ -12,7 +12,8 @@ class Order extends Model
     protected $fillable=[
         'user_id',
         'transaction_id' ,
-        'status'
+        'status' ,
+        'confirm'
     ];
 
     public function user()
