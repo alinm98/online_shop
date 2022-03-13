@@ -31,6 +31,14 @@
                                 <i class="mdi mdi-lock-open-variant-outline"></i>
                             </div>
 
+                            <div class="form-row-title">
+                                <h3>reCAPTCHA</h3>
+                            </div>
+                            <div class="form-row with-icon">
+                                {!! htmlFormSnippet() !!}
+                                <i class="mdi mdi-lock-open-variant-outline"></i>
+                            </div>
+
                             <div class="form-row mt-3">
                                 <button class="btn-primary-cm btn-with-icon mx-auto w-100">
                                     <i class="mdi mdi-account-circle-outline"></i>
