@@ -24,6 +24,7 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" href="/client/assets/css/main.css">
     <link rel="stylesheet" href="/client/assets/css/colors/default.css" id="colorswitch">
+    {!! ReCaptcha::htmlScriptTagJsApi() !!}
 </head>
 
 <body>

@@ -27,7 +27,8 @@ class ClientRegisterRequest extends FormRequest
             'name' => ['required' , 'unique:users,name'],
             'email' => ['required' , 'email', 'unique:users,email'],
             'mobile' =>['required', 'unique:users,mobile'],
-            'password' => ['required']
+            'password' => ['required'],
+            'g-recaptcha-response' => ['required']
         ];
     }
 }

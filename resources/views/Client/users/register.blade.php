@@ -26,7 +26,7 @@
                             <div class="form-row with-icon">
                                 <input type="email" class="input-ui pr-2" name="email"
                                        placeholder="ایمیل خود را وارد نمایید">
-                                <i class="mdi mdi-account-circle-outline"></i>
+                                <i class="mdi mdi-email"></i>
                             </div>
 
                             <div class="form-row-title">
@@ -35,7 +35,7 @@
                             <div class="form-row with-icon">
                                 <input type="number" class="input-ui pr-2" name="mobile"
                                        placeholder="0912XXXXXXX">
-                                <i class="mdi mdi-lock-open-variant-outline"></i>
+                                <i class="mdi mdi-phone"></i>
                             </div>
 
 
@@ -47,6 +47,15 @@
                                        placeholder="رمز عبور خود را وارد نمایید">
                                 <i class="mdi mdi-lock-open-variant-outline"></i>
                             </div>
+
+                            <div class="form-row-title">
+                                <h3>reCAPTCHA</h3>
+                            </div>
+                            <div class="form-row with-icon">
+                                {!! htmlFormSnippet() !!}
+                                <i class="mdi mdi-lock-open-variant-outline"></i>
+                            </div>
+
 
                             <div class="form-row mt-3">
                                 <button class="btn-primary-cm btn-with-icon mx-auto w-100">
