@@ -14,6 +14,7 @@
                                 <th>ID</th>
                                 <th>نام</th>
                                 <th>ایمیل</th>
+                                <td>نقش</td>
                                 <th>حذف</th>
                             </tr>
                             </thead>
@@ -23,6 +24,14 @@
                                     <td>{{$user->id}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
+                                    <td><a href="{{route('user.showRoles',$user)}}" class="btn btn-primary">
+                                            @if($user->role_id == 2)
+                                                ایجاد نقش
+                                            @endif
+                                            @if($user->role_id != 2)
+                                                {{$user->role->title}}
+                                            @endif
+                                        </a></td>
                                     <td><form action="{{route('users.destroy',$user)}}" method="post">
                                             @csrf
                                             @method('DELETE')

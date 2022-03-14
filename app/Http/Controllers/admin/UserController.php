@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -85,5 +86,21 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->back();
+    }
+
+    public function showRoles(User $user)
+    {
+        return view('Admin.users.showRoles',[
+            'user' => $user,
+            'roles' => Role::all()
+        ]);
+    }
+
+    public function storeRole(Request $request,User $user)
+    {
+        $user->update([
+            'role_id' => $request->get('role')
+        ]);
+        return redirect(route('users.index'));
     }
 }
