@@ -130,7 +130,8 @@
 
                         @foreach($categories_parents as $categories_parent)
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-3">
-                                <a class="nav-link" href="{{route('home.product.search.index')}}">{{$categories_parent->title}}</a>
+                                <a class="nav-link"
+                                   href="{{route('home.product.search.index')}}">{{$categories_parent->title}}</a>
                                 <ul class="sub-menu nav">
 
                                     @foreach($categories_parent->children as $category)
@@ -154,92 +155,86 @@
 
                     </ul>
                     @if(auth()->check())
-                        <div class="nav">
-                            <div class="nav-item cart--wrapper">
-                                <a class="nav-link" href="#">
-                                    <span class="label-dropdown">سبد خرید</span>
-                                    <i class="mdi mdi-cart-outline"></i>
-                                    <span class="count">{{count(auth()->user()->cart)}}</span>
-                                </a>
-                                <div class="header-cart-info">
-                                    <div class="header-cart-info-header">
-                                        <div class="header-cart-info-count">
-                                            {{count(auth()->user()->cart)}} کالا
-                                        </div>
-                                        <a href="{{route('home.cart.index')}}" class="header-cart-info-link">
-                                            <span>مشاهده سبد خرید</span>
-                                        </a>
-                                    </div>
-                                    <ul class="header-basket-list do-nice-scroll">
-                                        <?php
-                                        $carts = auth()->user()->cart;
-                                        $total = 0;
-                                        if (empty($carts->toArray())){
-                                            echo "<h6 style='color: red;text-align: center'>سبد خرید شما خالیست</h6>";
-                                        }
-                                        else{
-                                        ?>
-                                        @foreach($carts as $cart)
-                                            <li class="cart-item">
-                                                <a href="#" class="header-basket-list-item">
-                                                    <div class="header-basket-list-item-image">
-                                                        <img
-                                                            src="{{str_replace('public','/storage',$cart->product->image)}}"
-                                                            alt="">
-                                                    </div>
-                                                    <div class="header-basket-list-item-content">
-                                                        <p class="header-basket-list-item-title">
-                                                            {{$cart->product->name}}
-                                                        </p>
-                                                        <div class="header-basket-list-item-footer">
-                                                            <div class="header-basket-list-item-props">
-                                                                @if(empty($cart->product->discount))
-                                                                    <?php
-                                                                    $total += $cart->product->price;
-                                                                    ?>
-                                                                    <td><strong>{{number_format($cart->product->price)}}
-                                                                            تومان</strong></td>
-                                                                @endif
-                                                                @if(!empty($cart->product->discount))
-                                                                    <?php
-                                                                    $total += $cart->product->getDiscount();
-                                                                    ?>
-                                                                    <td>
-                                                                        <strong>{{number_format($cart->product->getDiscount())}}
-                                                                            تومان</strong></td>
-                                                                @endif
-                                                            </div>
-                                                            <button class="header-basket-list-item-remove">
-                                                                <i class="far fa-trash-alt"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        @endforeach
-
-                                    </ul>
-                                    <div class="header-cart-info-footer">
-                                        <div class="header-cart-info-total">
-                                            <span class="header-cart-info-total-text">مبلغ قابل پرداخت:</span>
-                                            <p class="header-cart-info-total-amount">
-                                                <span class="header-cart-info-total-amount-number">
-                                                   {{number_format($total)}} <span>تومان</span></span>
-                                            </p>
-                                        </div>
-
-                                        <div>
-                                            <a href="#" class="header-cart-info-submit">
-                                                ثبت سفارش
+                        <?php
+                        $carts = auth()->user()->cart;
+                        $total = 0;
+                        ?>
+                        @if(!empty($carts->toArray()))
+                            <div class="nav">
+                                <div class="nav-item cart--wrapper">
+                                    <a class="nav-link" href="#">
+                                        <span class="label-dropdown">سبد خرید</span>
+                                        <i class="mdi mdi-cart-outline"></i>
+                                        <span class="count">{{count(auth()->user()->cart)}}</span>
+                                    </a>
+                                    <div class="header-cart-info">
+                                        <div class="header-cart-info-header">
+                                            <div class="header-cart-info-count">
+                                                {{count(auth()->user()->cart)}} کالا
+                                            </div>
+                                            <a href="{{route('home.cart.index')}}" class="header-cart-info-link">
+                                                <span>مشاهده سبد خرید</span>
                                             </a>
                                         </div>
-                                        <?php
-                                        }
-                                        ?>
+                                        <ul class="header-basket-list do-nice-scroll">
+                                            @foreach($carts as $cart)
+                                                <li class="cart-item">
+                                                    <a href="{{route('home.product.show' , $cart->product)}}"
+                                                       class="header-basket-list-item">
+                                                        <div class="header-basket-list-item-image">
+                                                            <img
+                                                                src="{{str_replace('public','/storage',$cart->product->image)}}"
+                                                                alt="">
+                                                        </div>
+                                                        <div class="header-basket-list-item-content">
+                                                            <p class="header-basket-list-item-title">
+                                                                {{$cart->product->name}}
+                                                            </p>
+                                                            <div class="header-basket-list-item-footer">
+                                                                <div class="header-basket-list-item-props">
+                                                                    @if(empty($cart->product->discount))
+                                                                        <?php
+                                                                        $total += $cart->product->price;
+                                                                        ?>
+                                                                        <td>
+                                                                            <strong>{{number_format($cart->product->price)}}
+                                                                                تومان</strong></td>
+                                                                    @endif
+                                                                    @if(!empty($cart->product->discount))
+                                                                        <?php
+                                                                        $total += $cart->product->getDiscount();
+                                                                        ?>
+                                                                        <td>
+                                                                            <strong>{{number_format($cart->product->getDiscount())}}
+                                                                                تومان</strong></td>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
+                                        <div class="header-cart-info-footer">
+                                            <div class="header-cart-info-total">
+                                                <span class="header-cart-info-total-text">مبلغ قابل پرداخت:</span>
+                                                <p class="header-cart-info-total-amount">
+                                                <span class="header-cart-info-total-amount-number">
+                                                   {{number_format($total)}} <span>تومان</span></span>
+                                                </p>
+                                            </div>
+
+                                            <div>
+                                                <a href="{{route('home.cart.confirming')}}" class="header-cart-info-submit">
+                                                    ثبت سفارش
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endif
                     <button class="btn-menu">
                         <div class="align align__justify">

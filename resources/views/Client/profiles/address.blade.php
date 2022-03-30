@@ -11,15 +11,19 @@
                 </div>
                 <div class="dt-sl">
                     <div class="row">
-                        <div class="col-lg-6 col-md-12">
-                            <div class="card-horizontal-address text-center px-4">
-                                <button class="checkout-address-location" data-toggle="modal"
-                                        data-target="#modal-location">
-                                    <strong>ایجاد آدرس جدید</strong>
-                                    <i class="mdi mdi-map-marker-plus"></i>
-                                </button>
+
+                        @if(empty(auth()->user()->address[0]))
+                            <div class="col-lg-6 col-md-12">
+                                <div class="card-horizontal-address text-center px-4">
+                                    <button class="checkout-address-location" data-toggle="modal"
+                                            data-target="#modal-location">
+                                        <strong>ایجاد آدرس جدید</strong>
+                                        <i class="mdi mdi-map-marker-plus"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        @endif
+
                         @foreach(auth()->user()->address as $address)
                             <div class="col-lg-6 col-md-12">
                                 <div class="card-horizontal-address">

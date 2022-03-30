@@ -38,7 +38,7 @@
                                 <div class="profile-menu">
                                     <ul>
                                         <li>
-                                            <a href="#">
+                                            <a href="{{route('home.profile.index')}}">
                                                 <i class="mdi mdi-account-circle-outline"></i>
                                                 پروفایل
                                             </a>
@@ -51,18 +51,6 @@
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="mdi mdi-backburger"></i>
-                                                درخواست مرجوعی
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="mdi mdi-heart-outline"></i>
-                                                لیست علاقمندی ها
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
                                                 <i class="mdi mdi-glasses"></i>
                                                 نقد و نظرات
                                             </a>
@@ -71,18 +59,6 @@
                                             <a href="{{route('home.address.index')}}">
                                                 <i class="mdi mdi-sign-direction"></i>
                                                 آدرس ها
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="mdi mdi-eye-outline"></i>
-                                                بازدیدهای اخیر
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="mdi mdi-account-edit-outline"></i>
-                                                اطلاعات شخصی
                                             </a>
                                         </li>
                                     </ul>

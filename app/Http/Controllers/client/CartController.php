@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use function Sodium\add;
 
 class CartController extends Controller
 {
@@ -110,6 +111,9 @@ class CartController extends Controller
             else{
                 $cost += $cart->product->getDiscount();
             }
+        }
+        if (empty(auth()->user()->address[0])){
+            return redirect(route('home.address.index'));
         }
         return view('Client.carts.shopping',[
             'address' => auth()->user()->address[0],

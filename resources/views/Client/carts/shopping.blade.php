@@ -63,9 +63,6 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 px-res-1">
-                                <h2>مرسوله ۱ از ۱</h2>
-                            </div>
                         </form>
                     </section>
                 </div>

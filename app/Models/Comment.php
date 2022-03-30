@@ -33,9 +33,11 @@ class Comment extends Model
             $data['worth'] += $comment->worth;
             $data['design'] += $comment->design;
         }
-        $data['quality'] /= $count;
-        $data['worth'] /= $count;
-        $data['design'] /= $count;
+        if ($data['quality']!=0 and $data['worth']!=0 and $data['design']!=0) {
+            $data['quality'] /= $count;
+            $data['worth'] /= $count;
+            $data['design'] /= $count;
+        }
         $data['total'] = ($data['quality'] + $data['worth'] + $data['design']) / 3;
         return $data;
     }

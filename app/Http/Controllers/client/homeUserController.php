@@ -26,7 +26,7 @@ class homeUserController extends Controller
             'role_id' => 2
         ]);
 
-        return redirect(route('home.index'));
+        return redirect(route('home.user.showLogin'));
     }
 
     public function showLogin()

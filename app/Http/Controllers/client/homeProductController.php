@@ -28,9 +28,10 @@ class homeProductController extends Controller
 
     public function index()
     {
+        //$product = (Product::all())->toArray();
         $categories = (new \App\Models\Category)->getSubParents();
         return view('Client.products.search', [
-            'products_data' => Product::paginate(20),
+            'products_data' => Product::all(),
             'category_data' => $categories,
             'brands_data' => Brand::all(),
         ]);
@@ -39,11 +40,20 @@ class homeProductController extends Controller
     public function search(Request $request)
     {
 
-        foreach ($request->categories as $category) {
-            $product[] = Product::query()->where('category_id', $category)->get();
+        $product = Product::query();
+        if ($request->has('categories')) {
+            foreach ($request->categories as $category) {
+                $product = $product->where('category_id', $category)->get();
+            }
+        }
+
+        if ($request->has('brands')) {
+            foreach ($request->brands as $brand) {
+                $product = $product->where('brand_id', $brand)->get();
+            }
         }
         return view('Client.products.search', [
-            'products_data' => $product[0],
+            'products_data' => $product,
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
         ]);
