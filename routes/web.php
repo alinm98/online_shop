@@ -87,7 +87,8 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::post('/search' , [homeProductController::class,'search'])->name('product.search');
     Route::get('/comment/{product}',[CommentController::class,'index'])->middleware('auth')->name('comment.index');
     Route::post('/comment/{product}',[CommentController::class,'store'])->middleware('auth')->name('comment.store');
-
+    Route::get('/profile/comments',[ProfileController::class,'comment'])->middleware('auth')->name('profile.comment');
+    Route::delete('/comments/destroy/{comment}',[CommentController::class,'destroy'])->middleware('auth')->name('comment.destroy');
 
 
 });

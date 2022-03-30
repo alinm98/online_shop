@@ -50,7 +50,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="{{route('home.profile.comment')}}">
                                                 <i class="mdi mdi-glasses"></i>
                                                 نقد و نظرات
                                             </a>

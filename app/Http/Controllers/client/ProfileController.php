@@ -11,4 +11,11 @@ class ProfileController extends Controller
     {
         return view('Client.profiles.index');
     }
+
+    public function comment()
+    {
+        return view('Client.profiles.comments' ,[
+            'comments' => auth()->user()->comments
+        ]);
+    }
 }
