@@ -69,7 +69,7 @@
                             </form>
                         @endif
                         <br>
-                        <form action="{{route('order.destroy',$order)}}" method="post">
+                        <form action="{{route('order.confirm.destroy',$order)}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm mr-5 text-white">حذف

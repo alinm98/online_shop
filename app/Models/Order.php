@@ -13,7 +13,8 @@ class Order extends Model
         'user_id',
         'transaction_id' ,
         'status' ,
-        'confirm'
+        'confirm',
+        'total'
     ];
 
     public function user()

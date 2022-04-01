@@ -47,6 +47,7 @@ class OrderController extends Controller
         $order = Order::query()->create([
             'user_id' => auth()->user()->id ,
             'status' => 'wait' ,
+            'total' => $total
         ]);
         foreach (auth()->user()->cart as $cart){
             OrderDetail::query()->create([
@@ -58,12 +59,23 @@ class OrderController extends Controller
         }
         $invoice = (new Invoice)->amount($total);
 
+
         return Payment::purchase($invoice , function ($driver , $transactionId) use ($order){
             $order->update([
                 'transaction_id' => $transactionId,
             ]);
         })->pay()->render();
 
+    }
+
+    public function payFailedPayment(Order $order)
+    {
+        $invoice = (new Invoice)->amount($order->total);
+        return Payment::purchase($invoice ,function ($driver , $transactionId) use ($order){
+            $order->update([
+                'transaction_id' => $transactionId,
+            ]);
+        })->pay()->render();
     }
 
     /**
@@ -115,13 +127,22 @@ class OrderController extends Controller
      * @param \App\Models\Order $order
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Order $order)
+    public function destroy(Order $order): \Illuminate\Http\RedirectResponse
     {
         foreach ($order->detail as $detail){
             $detail->delete();
         }
         $order->delete();
-        return redirect()->back();
+        return redirect(route('order.index'));
+    }
+
+    public function destroyConfirm(Order $order): \Illuminate\Http\RedirectResponse
+    {
+        foreach ($order->detail as $detail){
+            $detail->delete();
+        }
+        $order->delete();
+        return redirect(route('order.confirm'));
     }
 
     public function confirm()

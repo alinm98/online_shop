@@ -44,7 +44,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="{{route('home.profile.order')}}">
                                                 <i class="mdi mdi-basket"></i>
                                                 همه سفارش ها
                                             </a>

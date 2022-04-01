@@ -14,7 +14,18 @@ class OrderDetailController extends Controller
         return view('Admin.orders.detail',[
             'order'=>$order,
             'details' =>$order->detail,
-            'total' =>$order->detail[0]->total
+            'total' =>$order->total
         ]);
     }
+
+    public function indexConfirm(Order $order)
+    {
+        return view('Admin.orders.detail.confirm',[
+            'order'=>$order,
+            'details' =>$order->detail,
+            'total' =>$order->total
+        ]);
+    }
+
+
 }

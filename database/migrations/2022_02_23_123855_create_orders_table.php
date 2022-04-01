@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('status');
             $table->integer('confirm')->nullable();
+            $table->string('total');
             $table->timestamps();
         });
     }

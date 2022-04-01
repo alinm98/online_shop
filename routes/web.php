@@ -62,8 +62,10 @@ Route::prefix('/panelAdmin')->middleware([
     Route::get('/order' ,[OrderController::class,'index'])->name('order.index');
     Route::get('/order/confirm',[OrderController::class,'confirm'])->name('order.confirm');
     Route::delete('/order/{order}',[OrderController::class,'destroy'])->name('order.destroy');
+    Route::delete('/order/confirm/{order}',[OrderController::class,'destroyConfirm'])->name('order.confirm.destroy');
     Route::patch('/order/{order}',[OrderController::class,'update'])->name('order.update');
     Route::get('/orderDetail/{order}',[OrderDetailController::class,'index'])->name('orderDetail.index');
+    Route::get('/orderDetail/confirm/{order}',[OrderDetailController::class,'indexConfirm'])->name('orderDetail.confirm.index');
     Route::get('/user/role/{user}',[UserController::class,'showRoles'])->name('user.showRoles');
     Route::post('/user/role/{user}',[UserController::class,'storeRole'])->name('user.storeRole');
 });
@@ -83,13 +85,14 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::delete('/cart/{cart}',[CartController::class,'destroy'])->middleware('auth')->name('cart.destroy');
     Route::get('/cart/confirming',[CartController::class,'confirmation'])->middleware('auth')->name('cart.confirming');
     Route::get('/order/{total}',[OrderController::class,'store'])->middleware('auth')->name('order.store');
+    Route::get('/order/payAgain/{order}',[OrderController::class,'payFailedPayment'])->middleware('auth')->name('order.pay.again');
     Route::get('/search', [homeProductController::class,'index'])->name('product.search.index');
     Route::post('/search' , [homeProductController::class,'search'])->name('product.search');
     Route::get('/comment/{product}',[CommentController::class,'index'])->middleware('auth')->name('comment.index');
     Route::post('/comment/{product}',[CommentController::class,'store'])->middleware('auth')->name('comment.store');
     Route::get('/profile/comments',[ProfileController::class,'comment'])->middleware('auth')->name('profile.comment');
     Route::delete('/comments/destroy/{comment}',[CommentController::class,'destroy'])->middleware('auth')->name('comment.destroy');
-
+    Route::get('/profile/orders',[ProfileController::class,'order'])->middleware('auth')->name('profile.order');
 
 });
 

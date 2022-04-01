@@ -18,4 +18,11 @@ class ProfileController extends Controller
             'comments' => auth()->user()->comments
         ]);
     }
+
+    public function order()
+    {
+        return view('Client.profiles.orders',[
+            'orders' => auth()->user()->orders,
+        ]);
+    }
 }

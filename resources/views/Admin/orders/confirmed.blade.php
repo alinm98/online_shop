@@ -39,7 +39,7 @@
                                         </td>
                                     @endif
                                     <td>
-                                        <form action="{{route('order.destroy',$order)}}" method="post">
+                                        <form action="{{route('order.confirm.destroy',$order)}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit" class="btn btn-danger btn-sm" value="حذف">
