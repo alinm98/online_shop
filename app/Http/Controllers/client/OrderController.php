@@ -54,6 +54,7 @@ class OrderController extends Controller
                 'product_id' => $cart->product_id,
                 'order_id' => $order->id,
                 'total' => $total,
+                'count' => $cart->count
             ]);
             $cart->addOneToProductBuyCount();
             $cart->delete();

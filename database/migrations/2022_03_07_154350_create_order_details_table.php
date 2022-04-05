@@ -17,6 +17,7 @@ class CreateOrderDetailsTable extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained();
             $table->foreignId('product_id')->constrained();
+            $table->integer('count');
             $table->string('total');
             $table->timestamps();
         });

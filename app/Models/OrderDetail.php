@@ -10,15 +10,15 @@ class OrderDetail extends Model
     use HasFactory;
 
     protected $fillable = [
-        'product_id', 'order_id', 'total'
+        'product_id', 'order_id', 'total', 'count'
     ];
 
-    public function order()
+    public function order(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
 
-    public function product()
+    public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Product::class);
     }

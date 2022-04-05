@@ -38,7 +38,8 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="checkout-btn-remove" type="submit">
-                                                                <i class="fa fa-trash" aria-hidden="true" style="color: red"></i></button>
+                                                                <i class="fa fa-trash" aria-hidden="true"
+                                                                   style="color: red"></i></button>
                                                         </form>
                                                     </td>
                                                     <td class="text-right">
@@ -46,28 +47,29 @@
                                                             {{$cart->product->name}}
                                                         </p>
                                                     </td>
-                                                    {{-- <td>
-                                                         <p class="mb-0">تعداد</p>
-                                                         <div class="number-input">
-                                                             <button
-                                                                 onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                                             <input class="quantity" min="0" name="quantity"
-                                                                    value="1" type="number">
-                                                             <button
-                                                                 onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                                                 class="plus"></button>
-                                                         </div>
-                                                     </td>--}}
+                                                    <td>
+                                                        <p class="mb-0">تعداد</p>
+                                                        <div class="number-input">
+                                                            <a href="{{route('home.cart.decrease',$cart)}}">
+                                                                <button></button>
+                                                            </a>
+                                                            <input class="quantity" min="0" name="quantity"
+                                                                   value="{{$cart->count}}" type="number" disabled>
+                                                            <a href="{{route('home.cart.increase',$cart)}}">
+                                                                <button class="plus"></button>
+                                                            </a>
+                                                        </div>
+                                                    </td>
                                                     @if(empty($cart->product->discount))
                                                         <?php
-                                                        $total += $cart->product->price;
+                                                        $total += ($cart->product->price)*$cart->count;
                                                         ?>
                                                         <td><strong>{{number_format($cart->product->price)}}
                                                                 تومان</strong></td>
                                                     @endif
                                                     @if(!empty($cart->product->discount))
                                                         <?php
-                                                        $total += $cart->product->getDiscount();
+                                                        $total += ($cart->product->getDiscount())*$cart->count;
                                                         ?>
                                                         <td><strong>{{number_format($cart->product->getDiscount())}}
                                                                 تومان</strong></td>

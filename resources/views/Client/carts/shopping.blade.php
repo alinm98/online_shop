@@ -70,7 +70,7 @@
                     <div class="dt-sn dt-sn--box border mb-2">
                         <ul class="checkout-summary-summary">
                             <li>
-                                <span>مبلغ کل ({{$count}} کالا)</span><span>{{$total}} تومان</span>
+                                <span>مبلغ کل ({{$count}} کالا)</span><span>{{number_format($total)}} تومان</span>
                             </li>
                             <li>
                                     <span>هزینه ارسال<span class="help-sn" data-toggle="tooltip" data-html="true"
@@ -86,7 +86,7 @@
                         <div class="checkout-summary-content">
                             <div class="checkout-summary-price-title">مبلغ قابل پرداخت:</div>
                             <div class="checkout-summary-price-value">
-                                <span class="checkout-summary-price-value-amount">{{$total}}</span>
+                                <span class="checkout-summary-price-value-amount">{{number_format($total)}}</span>
                                 تومان
                             </div>
                             <a href="{{route('home.order.store',$total)}}" class="mb-2 d-block">

@@ -86,6 +86,8 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/cart',[CartController::class,'index'])->middleware('auth')->name('cart.index');
     Route::delete('/cart/{cart}',[CartController::class,'destroy'])->middleware('auth')->name('cart.destroy');
     Route::get('/cart/confirming',[CartController::class,'confirmation'])->middleware('auth')->name('cart.confirming');
+    Route::get('/cart/increase/{cart}',[CartController::class,'increase'])->middleware('auth')->name('cart.increase');
+    Route::get('/cart/decrease/{cart}',[CartController::class,'decrease'])->middleware('auth')->name('cart.decrease');
     Route::get('/order/{total}',[OrderController::class,'store'])->middleware('auth')->name('order.store');
     Route::get('/order/payAgain/{order}',[OrderController::class,'payFailedPayment'])->middleware('auth')->name('order.pay.again');
     Route::get('/search', [homeProductController::class,'index'])->name('product.search.index');
