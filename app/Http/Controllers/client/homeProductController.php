@@ -14,6 +14,10 @@ class homeProductController extends Controller
 {
     public function show(Product $product)
     {
+        $product->update([
+            'visit' => $product->visit +1
+        ]);
+
         $count = Comment::query()->count();
         $data = (new Comment())->average($count);
         return view('Client.products.single', [

@@ -12,7 +12,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'price', 'description', 'image', 'category_id', 'brand_id'
+        'name', 'price', 'description', 'image', 'category_id', 'brand_id', 'buy_count', 'visit'
     ];
 
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -42,23 +42,20 @@ class Product extends Model
 
     public function hasDiscount(): bool
     {
-        if ($this->discount()->exists()){
+        if ($this->discount()->exists()) {
             return $this->discount->value;
-        }
-
-        else{
+        } else {
             return false;
         }
     }
 
     public function addDiscount(DiscountRequest $request)
     {
-        if (!$this->discount()->exists()){
+        if (!$this->discount()->exists()) {
             $this->discount()->create([
                 'value' => $request->get('value'),
             ]);
-        }
-        else{
+        } else {
             $this->discount()->update([
                 'value' => $request->get('value'),
             ]);
@@ -76,15 +73,13 @@ class Product extends Model
     {
         $price = $this->price;
         $discount = $this->discount->value;
-        return $price - $price*$discount/100;
+        return $price - $price * $discount / 100;
     }
 
     public function hasColor(Color $color): bool
     {
-        return $this->color()->where('color_id' , $color->id)->exists();
+        return $this->color()->where('color_id', $color->id)->exists();
     }
-
-
 
 
 }

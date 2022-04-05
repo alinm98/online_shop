@@ -17,7 +17,7 @@ class Order extends Model
         'total'
     ];
 
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -28,7 +28,7 @@ class Order extends Model
         return substr($string ,$from);
     }
 
-    public function detail()
+    public function detail(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(OrderDetail::class);
     }

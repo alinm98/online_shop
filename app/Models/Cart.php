@@ -13,13 +13,20 @@ class Cart extends Model
         'user_id', 'product_id'
     ];
 
-    public function product()
+    public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
 
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function addOneToProductBuyCount()
+    {
+        $this->product()->update([
+            'buy_count' => $this->product->buy_count + 1
+        ]);
     }
 }

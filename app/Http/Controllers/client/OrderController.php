@@ -55,6 +55,7 @@ class OrderController extends Controller
                 'order_id' => $order->id,
                 'total' => $total,
             ]);
+            $cart->addOneToProductBuyCount();
             $cart->delete();
         }
         $invoice = (new Invoice)->amount($total);
