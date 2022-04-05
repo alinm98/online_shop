@@ -16,17 +16,6 @@
                                 <span class="tooltip-option">افزودن به علاقمندی</span>
                             </li>
                         </ul>
-                        <div class="product-timeout position-relative pt-5 mb-3">
-                            <div class="promotion-badge">
-                                فروش ویژه
-                            </div>
-                            <div class="countdown-timer" countdown data-date="10 24 2019 20:20:22">
-                                <span data-days>0</span>:
-                                <span data-hours>0</span>:
-                                <span data-minutes>0</span>:
-                                <span data-seconds>0</span>
-                            </div>
-                        </div>
                         <div class="product-gallery">
                             <span class="badge">پر فروش</span>
                             <div class="product-carousel owl-carousel" data-slider-id="1">
@@ -90,28 +79,20 @@
                                     <h2>انتخاب رنگ:</h2>
                                 </div>
                                 <ul class="product-variants float-right ml-3">
-                                    <li class="ui-variant">
-                                        <label class="ui-variant ui-variant--color">
-                                            <span class="ui-variant-shape" style="background-color: #212121"></span>
-                                            <input type="radio" value="1" name="color" class="variant-selector"
-                                                   checked>
-                                            <span class="ui-variant--check">مشکی</span>
-                                        </label>
-                                    </li>
-                                    <li class="ui-variant">
-                                        <label class="ui-variant ui-variant--color">
-                                            <span class="ui-variant-shape" style="background-color: #f6f6f6"></span>
-                                            <input type="radio" value="3" name="color" class="variant-selector">
-                                            <span class="ui-variant--check">سفید</span>
-                                        </label>
-                                    </li>
-                                    <li class="ui-variant">
-                                        <label class="ui-variant ui-variant--color">
-                                            <span class="ui-variant-shape" style="background-color: #2196f3"></span>
-                                            <input type="radio" value="4" name="color" class="variant-selector">
-                                            <span class="ui-variant--check">آبی</span>
-                                        </label>
-                                    </li>
+
+
+                                    @foreach($colors as $color)
+                                        <li class="ui-variant">
+                                            <label class="ui-variant ui-variant--color">
+                                                <span class="ui-variant-shape" style="background-color: {{$color->color}}"></span>
+                                                <input type="radio" value="1" name="color" class="variant-selector"
+                                                       checked>
+                                                <span class="ui-variant--check">{{$color->title}}</span>
+                                            </label>
+                                        </li>
+                                    @endforeach
+
+
                                 </ul>
                             </div>
                             <div class="product-params dt-sl">

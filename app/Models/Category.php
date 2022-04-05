@@ -27,7 +27,7 @@ class Category extends Model
         return $this->belongsToMany(PropertyGroup::class);
     }
 
-    public function hasPropertyGroup(PropertyGroup $propertyGroup)
+    public function hasPropertyGroup(PropertyGroup $propertyGroup): bool
     {
         return $this->propertyGroup()->where('property_group_id' , $propertyGroup->id)->exists();
     }

@@ -42,12 +42,12 @@
                                     <span>کد ملی:</span>
                                 </div>
                                 <div class="value-info">
-                                    <span>-</span>
+                                    <span>{{auth()->user()->code_melli}}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="profile-section-link">
-                            <a href="#" class="border-bottom-dt">
+                            <a href="{{route('home.profile.edit')}}" class="border-bottom-dt">
                                 <i class="mdi mdi-account-edit-outline"></i>
                                 ویرایش اطلاعات شخصی
                             </a>

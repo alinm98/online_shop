@@ -51,6 +51,17 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <div class="form-check">
+                                        <label>انتخاب رنگ ها</label><br>
+                                        @foreach($colors as $color)
+                                            <input class="form-check-input" name="colors[]" type="checkbox"
+                                                   value="{{$color->id}}">
+                                            <label class="form-check-label col-sm-2">{{$color->title}}</label>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="exampleInputFile">انتخاب تصویر محصول</label>
                                     <div class="input-group">
                                         <div class="custom-file">

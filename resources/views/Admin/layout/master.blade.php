@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>پنل مدیریت | داشبورد اول</title>
+    <title>پنل مدیریت</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -151,6 +151,30 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('products.create')}}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>ایجاد</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-pie-chart"></i>
+                                <p>
+                                     رنگ ها
+                                    <i class="right fa fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('colors.index')}}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>لیست</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('colors.create')}}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>ایجاد</p>
                                     </a>

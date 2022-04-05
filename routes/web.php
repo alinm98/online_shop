@@ -19,6 +19,7 @@ use App\Http\Controllers\client\homeProductController;
 use App\Http\Controllers\client\homeUserController;
 use App\Http\Controllers\client\OrderController;
 use App\Http\Controllers\client\ProfileController;
+use App\Http\Controllers\admin\ColorController;
 use App\Http\Middleware\checkPermission;
 use Illuminate\Support\Facades\Route;
 
@@ -59,6 +60,7 @@ Route::prefix('/panelAdmin')->middleware([
     Route::resource('/properties',PropertyController::class);
     Route::resource('/roles',RoleController::class);
     Route::resource('/users',UserController::class);
+    Route::resource('/colors',ColorController::class);
     Route::get('/order' ,[OrderController::class,'index'])->name('order.index');
     Route::get('/order/confirm',[OrderController::class,'confirm'])->name('order.confirm');
     Route::delete('/order/{order}',[OrderController::class,'destroy'])->name('order.destroy');
@@ -93,6 +95,9 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/profile/comments',[ProfileController::class,'comment'])->middleware('auth')->name('profile.comment');
     Route::delete('/comments/destroy/{comment}',[CommentController::class,'destroy'])->middleware('auth')->name('comment.destroy');
     Route::get('/profile/orders',[ProfileController::class,'order'])->middleware('auth')->name('profile.order');
+    Route::get('/profile/edit',[ProfileController::class,'edit'])->middleware('auth')->name('profile.edit');
+    Route::post('/profile/update/{user}',[ProfileController::class,'update'])->middleware('auth')->name('profile.update');
+
 
 });
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -35,7 +36,8 @@ class ProductController extends Controller
     {
         return view('Admin.products.create' ,[
             'categories'=>Category::all(),
-            'brands'=>Brand::all()
+            'brands'=>Brand::all(),
+            'colors' =>Color::all()
         ]);
     }
 
@@ -48,7 +50,7 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $image = $request->file('image')->store('public/images/products');
-        Product::query()->create([
+        $product = Product::query()->create([
             'name'=>$request->get('name'),
             'price'=>$request->get('price'),
             'description'=>$request->get('description'),
@@ -56,6 +58,8 @@ class ProductController extends Controller
             'category_id'=>$request->get('category_id'),
             'brand_id'=>$request->get('brand_id'),
         ]);
+
+        $product->color()->attach($request->get('colors'));
 
         return redirect(route('products.index'));
     }
@@ -82,7 +86,8 @@ class ProductController extends Controller
         return view('Admin.products.edit' ,[
             'product' => $product,
             'categories'=>Category::all(),
-            'brands'=>Brand::all()
+            'brands'=>Brand::all(),
+            'colors' => Color::all()
         ]);
     }
 
@@ -109,6 +114,8 @@ class ProductController extends Controller
             'brand_id'=>$request->get('brand_id'),
         ]);
 
+        $product->color()->sync($request->get('colors'));
+
         return redirect(route('products.index'));
     }
 
@@ -120,6 +127,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $product->color()->detach();
         $product->delete();
         return redirect(route('products.index'));
 

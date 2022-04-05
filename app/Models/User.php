@@ -22,7 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
-        'mobile'
+        'mobile',
+        'code_melli'
     ];
 
     /**

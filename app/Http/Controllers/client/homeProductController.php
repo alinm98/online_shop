@@ -23,6 +23,7 @@ class homeProductController extends Controller
             'count' => $count,
             'data' => $data,
             'comments' => Comment::all(),
+            'colors' => $product->color,
         ]);
     }
 

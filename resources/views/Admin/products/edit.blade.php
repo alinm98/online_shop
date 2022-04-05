@@ -60,6 +60,21 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <div class="form-check">
+                                        <label>انتخاب گروه ویژگی ها</label><br>
+                                        @foreach($colors as $color)
+                                            <input class="form-check-input" name="colors[]" type="checkbox"
+                                                   value="{{$color->id}}"
+                                                   @if($product->hasColor($color))
+                                                   checked
+                                                @endif
+                                            >
+                                            <label class="form-check-label col-sm-2">{{$color->title}}</label>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="exampleInputImage">تصویر فعلی محصول</label>
                                     <img src="{{str_replace('public' , '/storage' , $product->image)}}" height="250px"
                                          width="400px" alt="{{$brand->title}}">
