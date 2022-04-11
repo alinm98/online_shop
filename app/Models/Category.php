@@ -12,17 +12,17 @@ class Category extends Model
         'title' , 'category_id' , 'property_groups'
     ];
 
-    public function parent()
+    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Category::class , 'category_id');
     }
 
-    public function children()
+    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Category::class , 'category_id');
     }
 
-    public function propertyGroup()
+    public function propertyGroup(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(PropertyGroup::class);
     }
@@ -37,7 +37,7 @@ class Category extends Model
         return Category::query()->where('category_id' , null)->get();
     }
 
-    public function getSubParents()
+    public function getSubParents(): array
     {
 
         $parents = (new \App\Models\Category)->getParents();

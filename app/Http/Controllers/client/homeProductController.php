@@ -64,4 +64,46 @@ class homeProductController extends Controller
         ]);
 
     }
+
+    public function subChildrenSearch(Category $category)
+    {
+        $product = Product::query()->where('category_id',$category->id)->get();
+
+        return view('Client.products.search', [
+            'products_data' => $product,
+            'category_data' => (new \App\Models\Category)->getSubParents(),
+            'brands_data' => Brand::all(),
+        ]);
+    }
+
+    public function subCategorySearch(Category $category)
+    {
+        $categories = $category->children()->get();
+        $product = Product::query();
+        foreach ($categories as $value){
+            $product = $product->where('category_id',$value->id)->get();
+        }
+        return view('Client.products.search', [
+            'products_data' => $product,
+            'category_data' => (new \App\Models\Category)->getSubParents(),
+            'brands_data' => Brand::all(),
+        ]);
+    }
+
+    public function CategorySearch(Category $category)
+    {
+        $categories = $category->children;
+        $product = Product::query();
+        foreach ($categories as $value){
+            foreach ($value->children as $val){
+                $product = $product->where('category_id',$val->id)->get();
+            }
+        }
+    
+        return view('Client.products.search', [
+            'products_data' => $product,
+            'category_data' => (new \App\Models\Category)->getSubParents(),
+            'brands_data' => Brand::all(),
+        ]);
+    }
 }

@@ -99,6 +99,12 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/profile/orders',[ProfileController::class,'order'])->middleware('auth')->name('profile.order');
     Route::get('/profile/edit',[ProfileController::class,'edit'])->middleware('auth')->name('profile.edit');
     Route::post('/profile/update/{user}',[ProfileController::class,'update'])->middleware('auth')->name('profile.update');
+    Route::get('/search/bySubChildren/{category}',[homeProductController::class,'subChildrenSearch'])->name('search.subChildren');
+    Route::get('/search/bySubCategoryChildren/{category}',[homeProductController::class,'subCategorySearch'])->name('search.subCategory');
+    Route::get('/search/byCategoryChildren/{category}',[homeProductController::class,'CategorySearch'])->name('search.category');
+
+
+
 
 
 });

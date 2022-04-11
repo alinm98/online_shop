@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-3 col-6">
                         <div class="logo-area">
-                            <a href="#">
+                            <a href="{{route('home.index')}}">
                                 <img src="/client/assets/img/logo.png" alt="">
                             </a>
                         </div>
@@ -100,10 +100,6 @@
                                             <i class="mdi mdi-account-card-details-outline"></i>پروفایل
                                         </a>
                                         <a class="dropdown-item" href="#">
-                                            <span class="float-left badge badge-dark">۴</span>
-                                            <i class="mdi mdi-comment-text-outline"></i>پیغام ها
-                                        </a>
-                                        <a class="dropdown-item" href="#">
                                             <i class="mdi mdi-account-edit-outline"></i>ویرایش حساب کاربری
                                         </a>
                                         <div class="dropdown-divider" role="presentation"></div>
@@ -131,17 +127,19 @@
                         @foreach($categories_parents as $categories_parent)
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-3">
                                 <a class="nav-link"
-                                   href="{{route('home.product.search.index')}}">{{$categories_parent->title}}</a>
+                                   href="{{route('home.search.category',$categories_parent)}}">{{$categories_parent->title}}</a>
                                 <ul class="sub-menu nav">
 
                                     @foreach($categories_parent->children as $category)
                                         <li class="list-item list-item-has-children">
-                                            <a class="nav-link" href="#">{{$category->title}}</a>
+                                            <a class="nav-link"
+                                               href="{{route('home.search.subCategory',$category)}}">{{$category->title}}</a>
                                             @if(count($category->children)>0)
                                                 @foreach($category->children as $value)
                                                     <ul class="sub-menu nav">
                                                         <li class="list-item">
-                                                            <a class="nav-link" href="#">{{$value->title}}</a>
+                                                            <a class="nav-link"
+                                                               href="{{route('home.search.subChildren',$value)}}">{{$value->title}}</a>
                                                         </li>
                                                     </ul>
                                                 @endforeach
@@ -226,7 +224,8 @@
                                             </div>
 
                                             <div>
-                                                <a href="{{route('home.cart.confirming')}}" class="header-cart-info-submit">
+                                                <a href="{{route('home.cart.confirming')}}"
+                                                   class="header-cart-info-submit">
                                                     ثبت سفارش
                                                 </a>
                                             </div>
