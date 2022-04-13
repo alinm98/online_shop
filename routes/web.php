@@ -102,7 +102,7 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/search/bySubChildren/{category}',[homeProductController::class,'subChildrenSearch'])->name('search.subChildren');
     Route::get('/search/bySubCategoryChildren/{category}',[homeProductController::class,'subCategorySearch'])->name('search.subCategory');
     Route::get('/search/byCategoryChildren/{category}',[homeProductController::class,'CategorySearch'])->name('search.category');
-
+    Route::post('/search/byInput',[homeProductController::class,'searchInput'])->name('search.input');
 
 
 

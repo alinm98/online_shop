@@ -44,29 +44,18 @@
                     </div>
                     <div class="col-lg-6 col-md-5 hidden-sm">
                         <div class="search-area dt-sl">
-                            <form action="" class="search">
-                                <input type="text"
-                                       placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
-                                <i class="far fa-search search-icon"></i>
-                                <button class="close-search-result" type="button"><i
-                                        class="mdi mdi-close"></i></button>
-                                <div class="search-result">
-                                    <ul>
-                                        <li>
-                                            <a href="#">موبایل</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">مد و پوشاک</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">میکروفن</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">میز تلویزیون</a>
-                                        </li>
-                                    </ul>
-                                </div>
+
+                            <form action="{{route('home.search.input')}}" class="search" method="post">
+                                @csrf
+                                <input type="text" name="search"
+                                       placeholder="نام کالا مورد نظر خود را جستجو کنید…">
+                                <button
+                                    style="background-color: rgba(117,118,115,0.69) !important;width: 35px!important;"
+                                    type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+
                             </form>
+
                         </div>
                     </div>
                     <div class="col-md-4 col-6 topbar-left">
@@ -249,8 +238,9 @@
                             </a>
                         </div>
                         <div class="search-box-side-menu dt-sl text-center mt-2 mb-3">
-                            <form action="">
-                                <input type="text" name="s" placeholder="جستجو کنید...">
+                            <form action="{{route('home.search.input')}}" method="post">
+                                @csrf
+                                <input type="text" name="search" placeholder="جستجو کنید...">
                                 <i class="mdi mdi-magnify"></i>
                             </form>
                         </div>

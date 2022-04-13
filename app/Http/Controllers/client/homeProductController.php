@@ -99,11 +99,26 @@ class homeProductController extends Controller
                 $product = $product->where('category_id',$val->id)->get();
             }
         }
-    
+
         return view('Client.products.search', [
             'products_data' => $product,
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
         ]);
     }
+
+    public function searchInput(Request $request)
+    {
+        $search = '%'.$request->get('search').'%';
+        $product = Product::query()->where('name','like' ,$search)->get();
+
+        return view('Client.products.search', [
+            'products_data' => $product,
+            'category_data' => (new \App\Models\Category)->getSubParents(),
+            'brands_data' => Brand::all(),
+        ]);
+    }
+
+
+
 }
