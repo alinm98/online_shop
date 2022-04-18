@@ -33,9 +33,14 @@ class homeProductController extends Controller
 
     public function index()
     {
-        //$product = (Product::all())->toArray();
+        ;
         $categories = (new \App\Models\Category)->getSubParents();
         return view('Client.products.search', [
+            'products_most_view'=> Product::query()->orderBy('visit')->get() ,
+            'products_most_new'=> Product::query()->orderBy('created_at')->get() ,
+            'products_most_buy'=> Product::query()->orderBy('buy_count')->get() ,
+            'products_most_price'=> Product::query()->orderByDesc('price')->get() ,
+            'products_lowest_price'=> Product::query()->orderBy('price' , 'asc')->get() ,
             'products_data' => Product::all(),
             'category_data' => $categories,
             'brands_data' => Brand::all(),
@@ -58,7 +63,7 @@ class homeProductController extends Controller
             }
         }
         return view('Client.products.search', [
-            'products_data' => $product,
+            'products_data' => $product->paginate(1),
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
         ]);
@@ -84,7 +89,7 @@ class homeProductController extends Controller
             $product = $product->where('category_id',$value->id)->get();
         }
         return view('Client.products.search', [
-            'products_data' => $product,
+            'products_data' => $product->paginate(1),
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
         ]);

@@ -178,21 +178,268 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="pagination">
-                                            <a href="#" class="prev"><i
-                                                    class="mdi mdi-chevron-double-right"></i></a>
-                                            <a href="#">1</a>
-                                            <a href="#" class="active-page">2</a>
-                                            <a href="#">3</a>
-                                            <a href="#">4</a>
-                                            <a href="#">...</a>
-                                            <a href="#">7</a>
-                                            <a href="#" class="next"><i class="mdi mdi-chevron-double-left"></i></a>
+                                {!! $products_data->links() !!}
+
+                            </div>
+                            <div class="ah-tab-content dt-sl">
+                                <div class="row mb-3 mx-0 px-res-0">
+                                    @foreach($products_most_view as $product)
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-10 mb-1 px-res-0">
+                                            <div class="product-card mb-2 mx-res-0">
+                                                <div class="product-head">
+                                                    <div class="rating-stars">
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                    </div>
+                                                    @if(!empty($product->discount))
+                                                        <div class="discount">
+                                                            <span>{{$product->discount->value}}%</span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <a class="product-thumb"
+                                                   href="{{route('home.product.show' , $product)}}">
+                                                    <img src="{{str_replace('public' , '/storage' , $product->image)}}"
+                                                         alt="Product Thumbnail">
+                                                </a>
+                                                <div class="product-card-body">
+                                                    <h5 class="product-title">
+                                                        <a href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    </h5>
+                                                    <a class="product-meta"
+                                                       href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    <span class="product-price">
+                                                        @if(!empty($product->discount))
+                                                            <del style="color: red">
+                                                        @endif
+                                                                {{number_format($product->price)}} تومان</span>
+                                                    @if(!empty($product->discount))
+                                                    </del>
+                                                    @endif
+
+                                                    @if(!empty($product->discount))
+                                                        <span class="product-price">
+                                                            {{number_format($product->getDiscount())}} تومان
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
+                                {!! $products_data->links() !!}
+
+                            </div>
+                            <div class="ah-tab-content dt-sl">
+                                <div class="row mb-3 mx-0 px-res-0">
+                                    @foreach($products_most_new as $product)
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-10 mb-1 px-res-0">
+                                            <div class="product-card mb-2 mx-res-0">
+                                                <div class="product-head">
+                                                    <div class="rating-stars">
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                    </div>
+                                                    @if(!empty($product->discount))
+                                                        <div class="discount">
+                                                            <span>{{$product->discount->value}}%</span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <a class="product-thumb"
+                                                   href="{{route('home.product.show' , $product)}}">
+                                                    <img src="{{str_replace('public' , '/storage' , $product->image)}}"
+                                                         alt="Product Thumbnail">
+                                                </a>
+                                                <div class="product-card-body">
+                                                    <h5 class="product-title">
+                                                        <a href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    </h5>
+                                                    <a class="product-meta"
+                                                       href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    <span class="product-price">
+                                                        @if(!empty($product->discount))
+                                                            <del style="color: red">
+                                                        @endif
+                                                                {{number_format($product->price)}} تومان</span>
+                                                    @if(!empty($product->discount))
+                                                    </del>
+                                                    @endif
+
+                                                    @if(!empty($product->discount))
+                                                        <span class="product-price">
+                                                            {{number_format($product->getDiscount())}} تومان
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                {!! $products_data->links() !!}
+
+                            </div>
+                            <div class="ah-tab-content dt-sl">
+                                <div class="row mb-3 mx-0 px-res-0">
+                                    @foreach($products_most_buy as $product)
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-10 mb-1 px-res-0">
+                                            <div class="product-card mb-2 mx-res-0">
+                                                <div class="product-head">
+                                                    <div class="rating-stars">
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                    </div>
+                                                    @if(!empty($product->discount))
+                                                        <div class="discount">
+                                                            <span>{{$product->discount->value}}%</span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <a class="product-thumb"
+                                                   href="{{route('home.product.show' , $product)}}">
+                                                    <img src="{{str_replace('public' , '/storage' , $product->image)}}"
+                                                         alt="Product Thumbnail">
+                                                </a>
+                                                <div class="product-card-body">
+                                                    <h5 class="product-title">
+                                                        <a href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    </h5>
+                                                    <a class="product-meta"
+                                                       href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    <span class="product-price">
+                                                        @if(!empty($product->discount))
+                                                            <del style="color: red">
+                                                        @endif
+                                                                {{number_format($product->price)}} تومان</span>
+                                                    @if(!empty($product->discount))
+                                                    </del>
+                                                    @endif
+
+                                                    @if(!empty($product->discount))
+                                                        <span class="product-price">
+                                                            {{number_format($product->getDiscount())}} تومان
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                {!! $products_data->links() !!}
+
+                            </div>
+                            <div class="ah-tab-content dt-sl">
+                                <div class="row mb-3 mx-0 px-res-0">
+                                    @foreach($products_lowest_price as $product)
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-10 mb-1 px-res-0">
+                                            <div class="product-card mb-2 mx-res-0">
+                                                <div class="product-head">
+                                                    <div class="rating-stars">
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                    </div>
+                                                    @if(!empty($product->discount))
+                                                        <div class="discount">
+                                                            <span>{{$product->discount->value}}%</span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <a class="product-thumb"
+                                                   href="{{route('home.product.show' , $product)}}">
+                                                    <img src="{{str_replace('public' , '/storage' , $product->image)}}"
+                                                         alt="Product Thumbnail">
+                                                </a>
+                                                <div class="product-card-body">
+                                                    <h5 class="product-title">
+                                                        <a href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    </h5>
+                                                    <a class="product-meta"
+                                                       href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    <span class="product-price">
+                                                        @if(!empty($product->discount))
+                                                            <del style="color: red">
+                                                        @endif
+                                                                {{number_format($product->price)}} تومان</span>
+                                                    @if(!empty($product->discount))
+                                                    </del>
+                                                    @endif
+
+                                                    @if(!empty($product->discount))
+                                                        <span class="product-price">
+                                                            {{number_format($product->getDiscount())}} تومان
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                {!! $products_data->links() !!}
+
+                            </div>
+                            <div class="ah-tab-content dt-sl">
+                                <div class="row mb-3 mx-0 px-res-0">
+                                    @foreach($products_most_price as $product)
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-10 mb-1 px-res-0">
+                                            <div class="product-card mb-2 mx-res-0">
+                                                <div class="product-head">
+                                                    <div class="rating-stars">
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="mdi mdi-star active"></i>
+                                                    </div>
+                                                    @if(!empty($product->discount))
+                                                        <div class="discount">
+                                                            <span>{{$product->discount->value}}%</span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <a class="product-thumb"
+                                                   href="{{route('home.product.show' , $product)}}">
+                                                    <img src="{{str_replace('public' , '/storage' , $product->image)}}"
+                                                         alt="Product Thumbnail">
+                                                </a>
+                                                <div class="product-card-body">
+                                                    <h5 class="product-title">
+                                                        <a href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    </h5>
+                                                    <a class="product-meta"
+                                                       href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    <span class="product-price">
+                                                        @if(!empty($product->discount))
+                                                            <del style="color: red">
+                                                        @endif
+                                                                {{number_format($product->price)}} تومان</span>
+                                                    @if(!empty($product->discount))
+                                                    </del>
+                                                    @endif
+
+                                                    @if(!empty($product->discount))
+                                                        <span class="product-price">
+                                                            {{number_format($product->getDiscount())}} تومان
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                {!! $products_data->links() !!}
+
                             </div>
                         </div>
                     </div>

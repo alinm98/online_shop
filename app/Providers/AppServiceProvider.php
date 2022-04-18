@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -34,5 +35,7 @@ class AppServiceProvider extends ServiceProvider
                 'brands' => Brand::all(),
             ]);
         });
+
+        \Illuminate\Pagination\Paginator::useBootstrap();
     }
 }
