@@ -41,7 +41,7 @@ class homeProductController extends Controller
             'products_most_buy'=> Product::query()->orderBy('buy_count')->get() ,
             'products_most_price'=> Product::query()->orderByDesc('price')->get() ,
             'products_lowest_price'=> Product::query()->orderBy('price' , 'asc')->get() ,
-            'products_data' => Product::all(),
+            'products_data' => Product::paginate(40),
             'category_data' => $categories,
             'brands_data' => Brand::all(),
         ]);

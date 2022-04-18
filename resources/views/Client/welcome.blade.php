@@ -13,16 +13,12 @@
                             <div class="row">
                                 <div class="col-12 mb-1">
                                     <div class="widget-banner">
-                                        <a href="#">
-                                            <img src="/client/assets/img/banner/banner-side-slider-1.jpg" alt="">
-                                        </a>
+                                            <img src="{{str_replace('public','/storage',$left_top_banner->image)}}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="widget-banner">
-                                        <a href="#">
-                                            <img src="/client/assets/img/banner/banner-side-slider-2.jpg" alt="">
-                                        </a>
+                                            <img src="{{str_replace('public','/storage',$left_bottom_banner->image)}}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -36,57 +32,27 @@
                              class="main-slider main-slider-cs mt-1 carousel slide carousel-fade card hidden-sm"
                              data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-                            <li data-target="#main-slider" data-slide-to="1"></li>
-                            <li data-target="#main-slider" data-slide-to="2"></li>
-                            <li data-target="#main-slider" data-slide-to="3"></li>
-                            <li data-target="#main-slider" data-slide-to="4"></li>
-                            <li data-target="#main-slider" data-slide-to="5"></li>
-                            <li data-target="#main-slider" data-slide-to="6"></li>
+                            @foreach($main_banners as $key=>$banner)
+                                <li data-target="#main-slider" data-slide-to="{{$key}}"
+                                    @if($key==0)
+                                    class="active"
+                                    @endif
+                                ></li>
+                            @endforeach
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/img-slider-2/1.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/img-slider-2/2.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/img-slider-2/3.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/img-slider-2/4.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/img-slider-2/5.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/img-slider-2/6.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/img-slider-2/7.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
+                            @foreach($main_banners as $key=>$banner)
+                                <div class="carousel-item
+                                @if($key==0)
+                                    active
+                                @endif
+                                    ">
+                                    <a class="main-slider-slide" >
+                                        <img src="{{str_replace('public','/storage',$banner->image)}}" alt=""
+                                             class="img-fluid">
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
                         <a class="carousel-control-prev" href="#main-slider" role="button" data-slide="prev">
                             <i class="mdi mdi-chevron-right"></i>
@@ -98,50 +64,28 @@
                     <section id="main-slider-res"
                              class="main-slider carousel slide carousel-fade card d-none show-sm" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#main-slider-res" data-slide-to="0" class="active"></li>
-                            <li data-target="#main-slider-res" data-slide-to="1"></li>
-                            <li data-target="#main-slider-res" data-slide-to="2"></li>
-                            <li data-target="#main-slider-res" data-slide-to="3"></li>
-                            <li data-target="#main-slider-res" data-slide-to="4"></li>
-                            <li data-target="#main-slider-res" data-slide-to="5"></li>
+                            @foreach($main_banners as $key=>$banner)
+                                <li data-target="#main-slider-res" data-slide-to="{{$key}}"
+                                    @if($key==0)
+                                    class="active"
+                                    @endif></li>
+                            @endforeach
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/slider-responsive/1.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/slider-responsive/2.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/slider-responsive/3.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/slider-responsive/4.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/slider-responsive/5.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a class="main-slider-slide" href="#">
-                                    <img src="/client/assets/img/main-slider/slider-responsive/6.jpg" alt=""
-                                         class="img-fluid">
-                                </a>
-                            </div>
+
+                            @foreach($main_banners as $key=>$banner)
+                                <div class="carousel-item
+                                    @if($key==0)
+                                    active
+                                @endif
+                                ">
+                                    <a class="main-slider-slide" href="#">
+                                        <img src="{{str_replace('public','/storage',$banner->image)}}" alt=""
+                                             class="img-fluid">
+                                    </a>
+                                </div>
+                            @endforeach
+
                         </div>
                         <a class="carousel-control-prev" href="#main-slider-res" role="button" data-slide="prev">
                             <i class="mdi mdi-chevron-right"></i>
@@ -205,7 +149,7 @@
                                                         @endif
                                                                 {{number_format($product->price)}} تومان</span>
                                                     @if(!empty($product->discount))
-                                                        </del>
+                                                    </del>
                                                     @endif
 
                                                     @if(!empty($product->discount))

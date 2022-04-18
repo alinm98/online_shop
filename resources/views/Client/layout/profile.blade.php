@@ -11,7 +11,7 @@
                             <div class="profile-sidebar-header dt-sl">
                                 <div class="d-flex align-items-center">
                                     <div class="profile-avatar">
-                                        <img src="./assets/img/theme/avatar.png" alt="">
+                                        <img src="/client/assets/img/theme/user.png" alt="">
                                     </div>
                                     <div class="profile-header-content mr-3 mt-2">
                                         <span class="d-block profile-username">{{auth()->user()->name}}</span>

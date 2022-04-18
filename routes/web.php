@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DiscountController;
@@ -61,6 +62,7 @@ Route::prefix('/panelAdmin')->middleware([
     Route::resource('/roles',RoleController::class);
     Route::resource('/users',UserController::class);
     Route::resource('/colors',ColorController::class);
+    Route::resource('/banners',BannerController::class);
     Route::get('/order' ,[OrderController::class,'index'])->name('order.index');
     Route::get('/order/confirm',[OrderController::class,'confirm'])->name('order.confirm');
     Route::delete('/order/{order}',[OrderController::class,'destroy'])->name('order.destroy');
