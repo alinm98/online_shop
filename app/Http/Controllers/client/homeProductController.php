@@ -41,7 +41,7 @@ class homeProductController extends Controller
             'products_most_buy'=> Product::query()->orderBy('buy_count')->get() ,
             'products_most_price'=> Product::query()->orderByDesc('price')->get() ,
             'products_lowest_price'=> Product::query()->orderBy('price' , 'asc')->get() ,
-            'products_data' => Product::paginate(40),
+            'products_data' => Product::all(),
             'category_data' => $categories,
             'brands_data' => Brand::all(),
         ]);
@@ -62,8 +62,21 @@ class homeProductController extends Controller
                 $product = $product->where('brand_id', $brand)->get();
             }
         }
+
+        $products_most_view = $product->sortByDesc('visit');
+        $products_most_new = $product->sortByDesc('created_at');
+        $products_most_buy = $product->sortByDesc('buy_count');
+        $products_most_price = $product->sortByDesc('price');
+        $products_lowest_price = $product->sortBy('price');
+
+
         return view('Client.products.search', [
-            'products_data' => $product->paginate(1),
+            'products_most_view' => $products_most_view,
+            'products_most_new' => $products_most_new,
+            'products_most_buy'=>$products_most_buy,
+            'products_most_price' =>$products_most_price,
+            'products_lowest_price'=>$products_lowest_price,
+            'products_data' => $product,
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
         ]);
@@ -74,7 +87,19 @@ class homeProductController extends Controller
     {
         $product = Product::query()->where('category_id',$category->id)->get();
 
+
+        $products_most_view = $product->sortByDesc('visit');
+        $products_most_new = $product->sortByDesc('created_at');
+        $products_most_buy = $product->sortByDesc('buy_count');
+        $products_most_price = $product->sortByDesc('price');
+        $products_lowest_price = $product->sortBy('price');
+
         return view('Client.products.search', [
+            'products_most_view' => $products_most_view,
+            'products_most_new' => $products_most_new,
+            'products_most_buy'=>$products_most_buy,
+            'products_most_price' =>$products_most_price,
+            'products_lowest_price'=>$products_lowest_price,
             'products_data' => $product,
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
@@ -88,8 +113,21 @@ class homeProductController extends Controller
         foreach ($categories as $value){
             $product = $product->where('category_id',$value->id)->get();
         }
+
+        $products_most_view = $product->sortByDesc('visit');
+        $products_most_new = $product->sortByDesc('created_at');
+        $products_most_buy = $product->sortByDesc('buy_count');
+        $products_most_price = $product->sortByDesc('price');
+        $products_lowest_price = $product->sortBy('price');
+
+
         return view('Client.products.search', [
-            'products_data' => $product->paginate(1),
+            'products_most_view' => $products_most_view,
+            'products_most_new' => $products_most_new,
+            'products_most_buy'=>$products_most_buy,
+            'products_most_price' =>$products_most_price,
+            'products_lowest_price'=>$products_lowest_price,
+            'products_data' => $product,
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
         ]);
@@ -105,7 +143,18 @@ class homeProductController extends Controller
             }
         }
 
+        $products_most_view = $product->sortByDesc('visit');
+        $products_most_new = $product->sortByDesc('created_at');
+        $products_most_buy = $product->sortByDesc('buy_count');
+        $products_most_price = $product->sortByDesc('price');
+        $products_lowest_price = $product->sortBy('price');
+
         return view('Client.products.search', [
+            'products_most_view' => $products_most_view,
+            'products_most_new' => $products_most_new,
+            'products_most_buy'=>$products_most_buy,
+            'products_most_price' =>$products_most_price,
+            'products_lowest_price'=>$products_lowest_price,
             'products_data' => $product,
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
@@ -117,7 +166,19 @@ class homeProductController extends Controller
         $search = '%'.$request->get('search').'%';
         $product = Product::query()->where('name','like' ,$search)->get();
 
+        $products_most_view = $product->sortByDesc('visit');
+        $products_most_new = $product->sortByDesc('created_at');
+        $products_most_buy = $product->sortByDesc('buy_count');
+        $products_most_price = $product->sortByDesc('price');
+        $products_lowest_price = $product->sortBy('price');
+
+
         return view('Client.products.search', [
+            'products_most_view' => $products_most_view,
+            'products_most_new' => $products_most_new,
+            'products_most_buy'=>$products_most_buy,
+            'products_most_price' =>$products_most_price,
+            'products_lowest_price'=>$products_lowest_price,
             'products_data' => $product,
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),

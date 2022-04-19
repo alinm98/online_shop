@@ -178,7 +178,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                {!! $products_data->links() !!}
+
 
                             </div>
                             <div class="ah-tab-content dt-sl">
@@ -230,7 +230,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                {!! $products_data->links() !!}
+
 
                             </div>
                             <div class="ah-tab-content dt-sl">
@@ -282,7 +282,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                {!! $products_data->links() !!}
+
 
                             </div>
                             <div class="ah-tab-content dt-sl">
@@ -334,7 +334,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                {!! $products_data->links() !!}
+
 
                             </div>
                             <div class="ah-tab-content dt-sl">
@@ -386,7 +386,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                {!! $products_data->links() !!}
+
 
                             </div>
                             <div class="ah-tab-content dt-sl">
@@ -438,7 +438,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                {!! $products_data->links() !!}
+
 
                             </div>
                         </div>
