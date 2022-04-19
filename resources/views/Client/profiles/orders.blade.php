@@ -45,7 +45,7 @@
                                     @endif
                                     <td>
                                         @if($order->confirm==1)
-                                            <button class="btn btn-success active">در حال ارسال</button>
+                                            <button class="btn btn-success active">ارسال شده</button>
                                         @endif
                                         @if($order->confirm!=1)
                                             <button class="btn btn-primary active">در حال بررسی</button>

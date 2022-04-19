@@ -88,9 +88,6 @@
                                         <a class="dropdown-item" href="{{route('home.profile.index')}}">
                                             <i class="mdi mdi-account-card-details-outline"></i>پروفایل
                                         </a>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="mdi mdi-account-edit-outline"></i>ویرایش حساب کاربری
-                                        </a>
                                         <div class="dropdown-divider" role="presentation"></div>
                                         <a class="dropdown-item" href="{{route('home.user.logout')}}">
                                             <i class="mdi mdi-logout-variant"></i>خروج

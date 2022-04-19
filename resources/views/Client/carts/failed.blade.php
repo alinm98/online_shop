@@ -11,15 +11,17 @@
                             <i class="mdi mdi-close"></i>
                         </div>
                         <div class="checkout-alert-title">
-                            <h4> سفارش <span
-                                    class="checkout-alert-highlighted checkout-alert-highlighted-success">CRO-75007560</span>
+                            <h4>سفارش شما
                                 ثبت شد اما پرداخت ناموفق بود.
                             </h4>
                         </div>
                         <div class="checkout-alert-content">
                             <p>
                                     <span class="checkout-alert-content-failed">برای جلوگیری از لغو سیستمی سفارش، تا ۱
-                                        ساعت آینده پرداخت را انجام دهید.</span>
+                                        روز آینده پرداخت را انجام دهید.</span>
+                                <br>
+                                <span class="checkout-alert-content-failed">
+                                       شما میتوانید با <a href="{{route('home.profile.order')}}">کلیک بر بروی این لینک</a> سفارشات خود را پیگیری کنید.</span>
                                 <br>
                                 <span class="checkout-alert-content-small px-res-1">
                                         چنانچه طی این فرایند مبلغی از حساب شما کسر شده است، طی ۷۲ ساعت آینده به حساب شما
