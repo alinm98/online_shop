@@ -120,11 +120,7 @@
                                             <div class="product-card">
                                                 <div class="product-head">
                                                     <div class="rating-stars">
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
+                                                        <i class="fa fa-eye" aria-hidden="true">{{$product->visit}}    </i>
                                                     </div>
                                                     @if(!empty($product->discount))
                                                         <div class="discount">
