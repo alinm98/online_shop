@@ -21,8 +21,8 @@ class CreateProductsTable extends Migration
             $table->string('image');
             $table->integer('price');
             $table->text('description');
-            $table->unsignedBigInteger('buy_count');
-            $table->unsignedBigInteger('visit');
+            $table->unsignedBigInteger('buy_count')->nullable();
+            $table->unsignedBigInteger('visit')->nullable();
 
 
             $table->timestamps();

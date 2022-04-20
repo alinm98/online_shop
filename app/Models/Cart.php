@@ -10,7 +10,7 @@ class Cart extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'product_id', 'count'
+        'user_id', 'product_id', 'count' , 'color_id'
     ];
 
     public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -28,5 +28,10 @@ class Cart extends Model
         $this->product()->update([
             'buy_count' => $this->product->buy_count + 1
         ]);
+    }
+
+    public function color(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Color::class);
     }
 }

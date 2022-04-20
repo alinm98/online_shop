@@ -26,7 +26,7 @@ class CategoryRequest extends FormRequest
         return [
             'title' => ['required','unique:categories,title'],
             'category_id' => ['nullable','exists:categories,id'],
-            'property_groups' => ['required' ,'array'],
+            'property_groups' => ['nullable' , 'array'],
             'property_groups[]' => ['exists:property_groups,id']
 
         ];

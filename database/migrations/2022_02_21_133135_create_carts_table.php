@@ -20,7 +20,6 @@ class CreateCartsTable extends Migration
             $table->integer('count');
             $table->timestamps();
         });
-        return redirect();
     }
 
     /**

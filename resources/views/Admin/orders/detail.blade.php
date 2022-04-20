@@ -25,6 +25,10 @@
                                     class="font-weight-bold text-uppercase">آدرس : </span><span
                                     class="ml-1">{{$order->user->address[0]->address}}</span>
                             </div>
+                            <div class="billed"><span
+                                    class="font-weight-bold text-uppercase">کد پستی : </span><span
+                                    class="ml-1">{{$order->user->address[0]->zip_code}}</span>
+                            </div>
                         </div>
                     </div>
                     <div class="mt-3">
@@ -34,7 +38,8 @@
                                 <tr>
                                     <th>نام محصول</th>
                                     <th>تعداد</th>
-                                    <th>قیمت</th>
+                                    <th>رنگ</th>
+                                    <th>قیمت واحد</th>
                                     <th>مجموع</th>
                                 </tr>
                                 </thead>
@@ -43,13 +48,22 @@
                                 @foreach($details as $detail)
                                     <tr>
                                         <td>{{$detail->product->name}}</td>
-                                        <td>1</td>
-                                        <td>{{$detail->product->price}}</td>
-                                        <td>{{$detail->product->price}}</td>
+                                        <td>{{$detail->count}}</td>
+                                        <td>{{$detail->color->title}}</td>
+                                        @if(empty($detail->product->discount))
+                                            <td>{{$detail->product->price}}</td>
+                                            <td>{{($detail->product->price)*$detail->count}}</td>
+                                        @endif
+                                        @if(!empty($detail->product->discount))
+                                            <td>{{$detail->product->getDiscount()}}</td>
+                                            <td>{{($detail->product->getDiscount())*$detail->count}}</td>
+                                        @endif
+
                                     </tr>
                                 @endforeach
 
                                 <tr>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td>مجموع</td>
@@ -73,7 +87,8 @@
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm mr-5 text-white">حذف
-                                سفارش</button>
+                                سفارش
+                            </button>
 
                         </form>
                     </div>

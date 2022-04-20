@@ -62,7 +62,7 @@ class Product extends Model
         }
     }
 
-    public function properties()
+    public function properties(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Property::class)
             ->withPivot('value')

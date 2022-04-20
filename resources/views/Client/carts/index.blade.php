@@ -47,6 +47,20 @@
                                                             {{$cart->product->name}}
                                                         </p>
                                                     </td>
+
+
+                                                    <td>
+                                                        <label class="ui-variant ui-variant--color">
+                                                    <span class="ui-variant-shape"
+                                                          style="background-color: {{$cart->color->color}}"></span>
+                                                            <input type="radio" value="{{$cart->color->id}}" name="color"
+                                                                   class="variant-selector"
+                                                                   >
+                                                            <span class="ui-variant--check">{{$cart->color->title}}</span>
+                                                        </label>
+                                                    </td>
+
+
                                                     <td>
                                                         <p class="mb-0">تعداد</p>
                                                         <div class="number-input">
@@ -62,14 +76,14 @@
                                                     </td>
                                                     @if(empty($cart->product->discount))
                                                         <?php
-                                                        $total += ($cart->product->price)*$cart->count;
+                                                        $total += ($cart->product->price) * $cart->count;
                                                         ?>
                                                         <td><strong>{{number_format($cart->product->price)}}
                                                                 تومان</strong></td>
                                                     @endif
                                                     @if(!empty($cart->product->discount))
                                                         <?php
-                                                        $total += ($cart->product->getDiscount())*$cart->count;
+                                                        $total += ($cart->product->getDiscount()) * $cart->count;
                                                         ?>
                                                         <td><strong>{{number_format($cart->product->getDiscount())}}
                                                                 تومان</strong></td>
@@ -125,14 +139,6 @@
                                     <div class="dt-sn dt-sn--box checkout-feature-aside pt-4">
                                         <ul>
                                             <li class="checkout-feature-aside-item">
-                                                <img src="./assets/img/svg/return-policy.svg" alt="">
-                                                هفت روز ضمانت تعویض
-                                            </li>
-                                            <li class="checkout-feature-aside-item">
-                                                <img src="./assets/img/svg/payment-terms.svg" alt="">
-                                                پرداخت در محل با کارت بانکی
-                                            </li>
-                                            <li class="checkout-feature-aside-item">
                                                 <img src="./assets/img/svg/delivery.svg" alt="">
                                                 تحویل اکسپرس
                                             </li>
@@ -141,81 +147,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                             aria-labelledby="nav-profile-tab">
-                            <div class="row">
-                                <div class="col-xl-9 col-lg-8 col-12 px-0">
-                                    <div class="table-responsive checkout-content dt-sl">
-                                        <div class="checkout-header checkout-header--express">
-                                            <span class="checkout-header-title">ارسال عادی</span>
-                                            <span class="checkout-header-extra-info">(2 کالا)</span>
-                                            <a class="checkout-add-all-to-cart">
-                                                افزودن همه به سبد خرید
-                                            </a>
-                                        </div>
-                                        <table class="table table-cart">
-                                            <tbody>
-                                            <tr class="checkout-item border-bottom">
-                                                <td>
-                                                    <img src="./assets/img/cart/04.jpg" alt="">
-                                                    <button class="checkout-btn-remove">&times;</button>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="#">
-                                                        <h3 class="checkout-title">
-                                                            گوشی موبایل اپل مدل iPhone X ظرفیت 256 گیگابایت
-                                                        </h3>
-                                                    </a>
-                                                    <p class="checkout-dealer">
-                                                        فروشنده: آیش شبکه
-                                                    </p>
-                                                    <p class="checkout-guarantee">گارانتی 18 ماهه آیش
-                                                    </p>
-                                                    <div class="checkout-variant checkout-variant--color">
-                                                        <span class="checkout-variant-title">رنگ :</span>
-                                                        <span class="checkout-variant-value">
-                                                                    مشکی
-                                                                    <div class="checkout-variant-shape"
-                                                                         style="background-color:#212121"></div>
-                                                                </span>
-                                                    </div>
-                                                    <a class="checkout-save-for-later">افزودن به سبد خرید</a>
-                                                </td>
-                                                <td>
-                                                    <p class="mb-0">تعداد</p>
-                                                    <div class="number-input">
-                                                        <button
-                                                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                                        <input class="quantity" min="0" name="quantity"
-                                                               value="1" type="number">
-                                                        <button
-                                                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                                            class="plus"></button>
-                                                    </div>
-                                                </td>
-                                                <td><strong>۱۲,۲۰۰,۰۰۰ تومان</strong></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-12 w-res-sidebar sticky-sidebar">
-                                    <div class="dt-sn dt-sn--box border">
-                                        <div
-                                            class="section-title text-sm-title title-wide mb-1 no-after-title-wide mb-2">
-                                            <h2 class="text-dark">لیست خرید بعدی چیست؟</h2>
-                                        </div>
-                                        <p class="text-secondary text-justify">
-                                            شما می‌توانید محصولاتی که به سبد خرید
-                                            خود افزوده اید و موقتا قصد خرید آن‌ها را ندارید، در لیست خرید بعدی خود
-                                            قرار داده و
-                                            هر زمان مایل بودید آن‌ها را مجدداً به سبد خرید اضافه کرده و خرید آن‌ها
-                                            را تکمیل کنید.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

@@ -48,10 +48,12 @@ class CartController extends Controller
      */
     public function store(Request $request, Product $product)
     {
+        $color = $request->get('color') ;
         Cart::query()->create([
             'user_id' => auth()->user()->id,
             'product_id' => $product->id,
-            'count' => 1
+            'count' => 1 ,
+            'color_id' => $color
         ]);
         return redirect(\route('home.cart.index'));
     }

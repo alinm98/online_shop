@@ -20,7 +20,7 @@
 
 
                                 <div class="form-group">
-                                    <label>انتخاب والد</label>
+                                    <label>انتخاب محل قرارگیری</label>
                                     <select class="form-control" name="location" required>
                                         <option disabled selected>---انخاب محل بنر---</option>
                                             <option value="1">راست</option>

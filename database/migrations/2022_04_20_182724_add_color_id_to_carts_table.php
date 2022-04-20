@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTransactionIdToOrders extends Migration
+class AddColorIdToCartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddTransactionIdToOrders extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->string('transaction_id')->nullable();
+        Schema::table('carts', function (Blueprint $table) {
+            $table->foreignId('color_id')->constrained();
         });
     }
 
@@ -25,7 +25,7 @@ class AddTransactionIdToOrders extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        Schema::table('carts', function (Blueprint $table) {
             //
         });
     }
