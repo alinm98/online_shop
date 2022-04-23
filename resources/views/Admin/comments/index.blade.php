@@ -1,0 +1,96 @@
+@extends('Admin.layout.master')
+@section('content')
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>عنوان نظر</th>
+                                <th>نام محصول</th>
+                                <th>تاریخ</th>
+                                <th>نمایش</th>
+                                <th>حذف</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($comments as $comment)
+                                <tr>
+                                    <td>{{$comment->id}}</td>
+                                    <td>{{$comment->title}}</td>
+                                    <td>{{$comment->product->name}}</td>
+                                    <td>{{$comment->created_at}}</td>
+                                    <td><a href="{{route('comment.show',$comment)}}" class="btn btn-sm btn-primary">نمایش</a> </td>
+                                    <td><form action="{{route('comment.destroy',$comment)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="submit" class="btn btn-danger btn-sm" value="حذف">
+                                        </form></td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+@endsection
+
+@section('script')
+    <!-- jQuery -->
+    <script src="/admin/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="/admin/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="/admin/plugins/datatables/dataTables.bootstrap4.js"></script>
+    <!-- SlimScroll -->
+    <script src="/admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="/admin/plugins/fastclick/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/admin/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/admin/dist/js/demo.js"></script>
+    <!-- page script -->
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "language": {
+                    "paginate": {
+                        "next": "بعدی",
+                        "previous": "قبلی"
+                    }
+                },
+                "info": false,
+            });
+            $('#example2').DataTable({
+                "language": {
+                    "paginate": {
+                        "next": "بعدی",
+                        "previous": "قبلی"
+                    }
+                },
+                "info": false,
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+
+@endsection

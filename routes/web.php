@@ -72,6 +72,9 @@ Route::prefix('/panelAdmin')->middleware([
     Route::get('/orderDetail/confirm/{order}',[OrderDetailController::class,'indexConfirm'])->name('orderDetail.confirm.index');
     Route::get('/user/role/{user}',[UserController::class,'showRoles'])->name('user.showRoles');
     Route::post('/user/role/{user}',[UserController::class,'storeRole'])->name('user.storeRole');
+    Route::get('/comments',[\App\Http\Controllers\admin\CommentController::class,'index'])->name('comment.index');
+    Route::get('/comments/{comment}',[\App\Http\Controllers\admin\CommentController::class,'show'])->name('comment.show');
+    Route::delete('/comments/{comment}',[\App\Http\Controllers\admin\CommentController::class,'destroy'])->name('comment.destroy');
 });
 
 /*Client Routing*/
