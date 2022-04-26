@@ -12,7 +12,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'price', 'description', 'image', 'category_id', 'brand_id', 'buy_count', 'visit'
+        'name', 'price', 'description', 'image', 'category_id', 'brand_id', 'buy_count', 'visit', 'inventory'
     ];
 
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo

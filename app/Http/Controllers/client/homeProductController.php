@@ -36,12 +36,12 @@ class homeProductController extends Controller
         ;
         $categories = (new \App\Models\Category)->getSubParents();
         return view('Client.products.search', [
-            'products_most_view'=> Product::query()->orderBy('visit')->get() ,
-            'products_most_new'=> Product::query()->orderBy('created_at')->get() ,
-            'products_most_buy'=> Product::query()->orderBy('buy_count')->get() ,
-            'products_most_price'=> Product::query()->orderByDesc('price')->get() ,
-            'products_lowest_price'=> Product::query()->orderBy('price' , 'asc')->get() ,
-            'products_data' => Product::all(),
+            'products_most_view'=> Product::query()->where('inventory',1)->orderBy('visit')->get() ,
+            'products_most_new'=> Product::query()->where('inventory',1)->orderBy('created_at')->get() ,
+            'products_most_buy'=> Product::query()->where('inventory',1)->orderBy('buy_count')->get() ,
+            'products_most_price'=> Product::query()->where('inventory',1)->orderByDesc('price')->get() ,
+            'products_lowest_price'=> Product::query()->where('inventory',1)->orderBy('price' , 'asc')->get() ,
+            'products_data' => Product::query()->where('inventory',1),
             'category_data' => $categories,
             'brands_data' => Brand::all(),
         ]);
@@ -50,7 +50,7 @@ class homeProductController extends Controller
     public function search(Request $request)
     {
 
-        $product = Product::query();
+        $product = Product::query()->where('inventory',1);
         if ($request->has('categories')) {
             foreach ($request->categories as $category) {
                 $product = $product->where('category_id', $category)->get();
@@ -85,7 +85,7 @@ class homeProductController extends Controller
 
     public function subChildrenSearch(Category $category)
     {
-        $product = Product::query()->where('category_id',$category->id)->get();
+        $product = Product::query()->where('inventory',1)->where('category_id',$category->id)->get();
 
 
         $products_most_view = $product->sortByDesc('visit');
@@ -109,7 +109,7 @@ class homeProductController extends Controller
     public function subCategorySearch(Category $category)
     {
         $categories = $category->children()->get();
-        $product = Product::query();
+        $product = Product::query()->where('inventory',1);
         foreach ($categories as $value){
             $product = $product->where('category_id',$value->id)->get();
         }
@@ -136,7 +136,7 @@ class homeProductController extends Controller
     public function CategorySearch(Category $category)
     {
         $categories = $category->children;
-        $product = Product::query();
+        $product = Product::query()->where('inventory',1);
         foreach ($categories as $value){
             foreach ($value->children as $val){
                 $product = $product->where('category_id',$val->id)->get();
@@ -164,7 +164,7 @@ class homeProductController extends Controller
     public function searchInput(Request $request)
     {
         $search = '%'.$request->get('search').'%';
-        $product = Product::query()->where('name','like' ,$search)->get();
+        $product = Product::query()->where('inventory',1)->where('name','like' ,$search)->get();
 
         $products_most_view = $product->sortByDesc('visit');
         $products_most_new = $product->sortByDesc('created_at');

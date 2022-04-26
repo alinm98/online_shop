@@ -98,7 +98,6 @@
                                                 <span class="ui-statusswitcher-slider-toggle"></span>
                                             </span>
                                     </label>
-                                    <label class="label-switcher" for="switcher-1">فقط کالاهای موجود</label>
                                 </div>
                             </div>
                             <div class="col-12">

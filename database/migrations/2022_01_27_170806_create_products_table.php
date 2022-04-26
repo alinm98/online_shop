@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->unsignedBigInteger('buy_count')->nullable();
             $table->unsignedBigInteger('visit')->nullable();
+            $table->string('inventory')->nullable();
 
 
             $table->timestamps();

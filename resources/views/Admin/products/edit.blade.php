@@ -60,6 +60,22 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label>وضعیت موجودی</label>
+                                        <select class="form-control" name="inventory">
+                                            <option value="1"
+                                            @if($product->inventory == 1)
+                                                selected
+                                            @endif
+                                            >موجود</option>
+                                            <option value="0"
+                                            @if($product->inventory == 0)
+                                                selected
+                                            @endif
+                                            >ناموجود</option>
+                                        </select>
+                                </div>
+
+                                <div class="form-group">
                                     <div class="form-check">
                                         <label>انتخاب گروه ویژگی ها</label><br>
                                         @foreach($colors as $color)

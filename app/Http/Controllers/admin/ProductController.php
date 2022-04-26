@@ -22,8 +22,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('Admin.products.index' ,[
-            'products' =>Product::all()
+        return view('Admin.products.index', [
+            'products' => Product::all()
         ]);
     }
 
@@ -34,29 +34,30 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('Admin.products.create' ,[
-            'categories'=>Category::all(),
-            'brands'=>Brand::all(),
-            'colors' =>Color::all()
+        return view('Admin.products.create', [
+            'categories' => Category::all(),
+            'brands' => Brand::all(),
+            'colors' => Color::all()
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(ProductRequest $request)
     {
         $image = $request->file('image')->store('public/images/products');
         $product = Product::query()->create([
-            'name'=>$request->get('name'),
-            'price'=>$request->get('price'),
-            'description'=>$request->get('description'),
-            'image'=>$image,
-            'category_id'=>$request->get('category_id'),
-            'brand_id'=>$request->get('brand_id'),
+            'name' => $request->get('name'),
+            'price' => $request->get('price'),
+            'description' => $request->get('description'),
+            'image' => $image,
+            'category_id' => $request->get('category_id'),
+            'brand_id' => $request->get('brand_id'),
+            'inventory' => 1,
         ]);
 
         $product->color()->attach($request->get('colors'));
@@ -67,7 +68,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
@@ -78,15 +79,15 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit(Product $product)
     {
-        return view('Admin.products.edit' ,[
+        return view('Admin.products.edit', [
             'product' => $product,
-            'categories'=>Category::all(),
-            'brands'=>Brand::all(),
+            'categories' => Category::all(),
+            'brands' => Brand::all(),
             'colors' => Color::all()
         ]);
     }
@@ -94,24 +95,25 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Product $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Product $product)
     {
-        $image=$product->image;
-        if ($request->file('image')!=null) {
+        $image = $product->image;
+        if ($request->file('image') != null) {
             $image = $request->file('image')->store('public/images/products');
             Storage::delete($product->image);
         }
         $product->update([
-            'name'=>$request->get('name'),
-            'price'=>$request->get('price'),
-            'description'=>$request->get('description'),
-            'image'=>$image,
-            'category_id'=>$request->get('category_id'),
-            'brand_id'=>$request->get('brand_id'),
+            'name' => $request->get('name'),
+            'price' => $request->get('price'),
+            'description' => $request->get('description'),
+            'image' => $image,
+            'category_id' => $request->get('category_id'),
+            'brand_id' => $request->get('brand_id'),
+            'inventory' => $request->get('inventory'),
         ]);
 
         $product->color()->sync($request->get('colors'));
@@ -122,7 +124,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function destroy(Product $product)
