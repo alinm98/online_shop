@@ -35,13 +35,14 @@ class homeProductController extends Controller
     {
         ;
         $categories = (new \App\Models\Category)->getSubParents();
+        $product = Product::query()->where('inventory',1);
         return view('Client.products.search', [
-            'products_most_view'=> Product::query()->where('inventory',1)->orderBy('visit')->get() ,
-            'products_most_new'=> Product::query()->where('inventory',1)->orderBy('created_at')->get() ,
-            'products_most_buy'=> Product::query()->where('inventory',1)->orderBy('buy_count')->get() ,
-            'products_most_price'=> Product::query()->where('inventory',1)->orderByDesc('price')->get() ,
-            'products_lowest_price'=> Product::query()->where('inventory',1)->orderBy('price' , 'asc')->get() ,
-            'products_data' => Product::query()->where('inventory',1),
+            'products_most_view'=> $product->orderBy('visit')->get() ,
+            'products_most_new'=> $product->orderBy('created_at')->get() ,
+            'products_most_buy'=> $product->orderBy('buy_count')->get() ,
+            'products_most_price'=> $product->orderByDesc('price')->get() ,
+            'products_lowest_price'=> $product->orderBy('price' , 'asc')->get() ,
+            'products_data' => $product->get(),
             'category_data' => $categories,
             'brands_data' => Brand::all(),
         ]);
