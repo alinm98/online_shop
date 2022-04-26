@@ -27,6 +27,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        view()->composer(['Admin.*'], function ($view) {
+            $view->with([
+                'buy_count_adminPanel' => \App\Models\Order::query()->where('confirm',null)->count()
+            ]);
+        });
+
         view()->composer(['Client.*'], function ($view) {
             $view->with([
                 'categories_parents' => (new \App\Models\Category)->getParents(),

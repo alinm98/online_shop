@@ -278,6 +278,7 @@
                                 <p>
                                     سفارشات
                                     <i class="right fa fa-angle-left"></i>
+
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
@@ -285,6 +286,7 @@
                                     <a href="{{route('order.index')}}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>لیست در انتظار ارسال</p>
+                                        <span class="badge badge-info right">{{$buy_count_adminPanel}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
