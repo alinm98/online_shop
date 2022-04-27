@@ -23,9 +23,9 @@
                                     <label>انتخاب محل قرارگیری</label>
                                     <select class="form-control" name="location" required>
                                         <option disabled selected>---انخاب محل بنر---</option>
-                                            <option value="1">راست</option>
-                                            <option value="2">چپ بالا</option>
-                                            <option value="3">چپ پایین</option>
+                                            <option value="1">راست(890*1780)</option>
+                                            <option value="2">چپ بالا(428*856)</option>
+                                            <option value="3">چپ پایین(428*856)</option>
                                     </select>
                                 </div>
 

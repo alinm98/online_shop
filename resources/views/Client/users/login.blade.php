@@ -42,7 +42,7 @@
                             <div class="form-row mt-3">
                                 <button class="btn-primary-cm btn-with-icon mx-auto w-100">
                                     <i class="mdi mdi-account-circle-outline"></i>
-                                    ورود به کرون
+                                    ورود به دیجی طراوت
                                 </button>
                             </div>
                             <div class="form-row mt-3 ">
