@@ -213,7 +213,7 @@
                             <div class="product-title dt-sl mb-3">
                                 <h1>{{$product->name}}</h1>
                                 <h3><span
-                                        class="rate-product">({{$data['total']}} از 5 | {{$count}} نظر)</span></h3>
+                                        class="rate-product">({{round($data['total'], 1)}} از 5 | {{$count}} نظر)</span></h3>
                             </div>
                             <div class="dt-sl">
                                 <div class="row">

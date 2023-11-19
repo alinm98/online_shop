@@ -88,6 +88,17 @@
                                         <a class="dropdown-item" href="{{route('home.profile.index')}}">
                                             <i class="mdi mdi-account-card-details-outline"></i>پروفایل
                                         </a>
+                                        <?php
+                                            $user_role = null;
+                                            if (auth()->check()){
+                                                $user_role = auth()->user()->role;
+                                            }
+                                        ?>
+                                        @if($user_role->hasStrPermission('view_dashboard'))
+                                            <a class="dropdown-item" href="http://127.0.0.1:8000/panelAdmin">
+                                                <i class="mdi mdi-account-card-details-outline"></i>پنل ادمین
+                                            </a>
+                                        @endif
                                         <div class="dropdown-divider" role="presentation"></div>
                                         <a class="dropdown-item" href="{{route('home.user.logout')}}">
                                             <i class="mdi mdi-logout-variant"></i>خروج
@@ -113,13 +124,13 @@
                         @foreach($categories_parents as $categories_parent)
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-3">
                                 <a class="nav-link"
-                                   href="{{route('home.search.category',$categories_parent)}}">{{$categories_parent->title}}</a>
+                                   >{{$categories_parent->title}}</a>
                                 <ul class="sub-menu nav">
 
                                     @foreach($categories_parent->children as $category)
                                         <li class="list-item list-item-has-children">
                                             <a class="nav-link"
-                                               href="{{route('home.search.subCategory',$category)}}">{{$category->title}}</a>
+                                               >{{$category->title}}</a>
                                             @if(count($category->children)>0)
                                                 @foreach($category->children as $value)
                                                     <ul class="sub-menu nav">
@@ -292,70 +303,24 @@
         <div class="container main-container">
             <div class="footer-widgets">
                 <div class="row">
+
+
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="widget-menu widget card">
                             <header class="card-header">
-                                <h3 class="card-title">راهنمای خرید از دیجی طراوت</h3>
+                                <h3 class="card-title">با کرون</h3>
                             </header>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="#">نحوه ثبت سفارش</a>
+                                    <a href="#">تماس با کرون</a>
                                 </li>
                                 <li>
-                                    <a href="#">رویه ارسال سفارش</a>
-                                </li>
-                                <li>
-                                    <a href="#">شیوه‌های پرداخت</a>
+                                    <a href="#">درباره کرون</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="widget-menu widget card">
-                            <header class="card-header">
-                                <h3 class="card-title">خدمات مشتریان</h3>
-                            </header>
-                            <ul class="footer-menu">
-                                <li>
-                                    <a href="#">پاسخ به پرسش‌های متداول</a>
-                                </li>
-                                <li>
-                                    <a href="#">رویه‌های بازگرداندن کالا</a>
-                                </li>
-                                <li>
-                                    <a href="#">شرایط استفاده</a>
-                                </li>
-                                <li>
-                                    <a href="#">حریم خصوصی</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="widget-menu widget card">
-                            <header class="card-header">
-                                <h3 class="card-title">با دیجی طراوت</h3>
-                            </header>
-                            <ul class="footer-menu">
-                                <li>
-                                    <a href="#">فروش در دیجی طراوت</a>
-                                </li>
-                                <li>
-                                    <a href="#">همکاری با سازمان‌ها</a>
-                                </li>
-                                <li>
-                                    <a href="#">فرصت‌های شغلی</a>
-                                </li>
-                                <li>
-                                    <a href="#">تماس با دیجی طراوت</a>
-                                </li>
-                                <li>
-                                    <a href="#">درباره دیجی طراوت</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-9">
                         <div class="newsletter">
                             <p>از تخفیف‌ها و جدیدترین‌های فروشگاه باخبر شوید:</p>
                             <form action="">
@@ -390,13 +355,13 @@
             <div class="container main-container">
                 <div class="row">
                     <div class="site-description col-12 col-lg-7">
-                        <h1 class="site-title">فروشگاه اینترنتی دیجی طراوت، بررسی، انتخاب و خرید آنلاین</h1>
+                        <h1 class="site-title">فروشگاه اینترنتی کرون، بررسی، انتخاب و خرید آنلاین</h1>
                         <p>
-                            دیجی طراوت به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با
+                            کرون به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با
                             پایبندی به سه اصل کلیدی، پرداخت در
                             محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با فروشگاه‌های
                             معتبر جهان، به بزرگ‌ترین فروشگاه
-                            اینترنتی ایران تبدیل شود. به محض ورود به دیجی طراوت با یک سایت پر از کالا رو به رو
+                            اینترنتی ایران تبدیل شود. به محض ورود به کرون با یک سایت پر از کالا رو به رو
                             می‌شوید! هر آنچه که نیاز دارید و به
                             ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
                         </p>
@@ -411,9 +376,9 @@
         <div class="copyright">
             <div class="container main-container">
                 <p>
-                    استفاده از مطالب فروشگاه اینترنتی دیجی طراوت فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع است.
+                    استفاده از مطالب فروشگاه اینترنتی کرون فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع است.
                     کلیه حقوق این سایت متعلق
-                    به شرکت نوآوران فن آوازه (فروشگاه آنلاین دیجی طراوت) می‌باشد.
+                    به شرکت نوآوران فن آوازه (فروشگاه آنلاین کرون) می‌باشد.
                 </p>
             </div>
         </div>

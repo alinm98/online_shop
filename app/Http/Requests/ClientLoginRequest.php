@@ -26,7 +26,7 @@ class ClientLoginRequest extends FormRequest
         return [
             'email' =>['required','email','exists:users,email'],
             'password'=>['required'],
-            'g-recaptcha-response' => ['required']
+            //'g-recaptcha-response' => ['required']
         ];
     }
 }

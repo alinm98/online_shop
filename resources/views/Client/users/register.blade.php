@@ -60,7 +60,7 @@
                             <div class="form-row mt-3">
                                 <button class="btn-primary-cm btn-with-icon mx-auto w-100">
                                     <i class="mdi mdi-account-circle-outline"></i>
-                                    ثبت نام در دیجی طراوت
+                                    ثبت نام در کرون
                                 </button>
                             </div>
                             <div class="form-row mt-3 ">
