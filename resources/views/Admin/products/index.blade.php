@@ -37,7 +37,7 @@
                                     <td><a href="{{route('products.discounts.create',$product)}}"
                                            class="btn btn-sm btn-success">
                                             @if($product->hasDiscount())
-                                                %{{$product->hasDiscount()}}
+                                                %{{$product->discount->value}}
                                                 <form
                                                     action="{{route('products.discounts.destroy',['product'=>$product,'discount'=>$product->discount])}}"
                                                     method="post">

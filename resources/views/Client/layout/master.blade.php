@@ -8,7 +8,8 @@
     <meta name="theme-color" content="#f7858d">
     <meta name="msapplication-navbutton-color" content="#f7858d">
     <meta name="apple-mobile-web-app-status-bar-style" content="#f7858d">
-    <title>didikala | Index Page</title>
+    <title>Croon</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/client/assets/img/header_logo.png">
     <!-- Font Icon -->
     <link rel="stylesheet" href="/client/assets/css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="/client/assets/css/vendor/materialdesignicons.min.css">

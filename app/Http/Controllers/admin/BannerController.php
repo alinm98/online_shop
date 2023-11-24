@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
 {
@@ -105,6 +106,7 @@ class BannerController extends Controller
      */
     public function destroy(Banner $banner): \Illuminate\Http\RedirectResponse
     {
+        Storage::delete($banner->image);
         $banner->delete();
         return redirect()->back();
     }
