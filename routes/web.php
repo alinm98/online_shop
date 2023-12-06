@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DiscountController;
 use App\Http\Controllers\admin\GalleryController;
+use App\Http\Controllers\admin\HomeBlogController;
 use App\Http\Controllers\admin\OrderDetailController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductPropertyController;
@@ -63,6 +65,8 @@ Route::prefix('/panelAdmin')->middleware([
     Route::resource('/users',UserController::class);
     Route::resource('/colors',ColorController::class);
     Route::resource('/banners',BannerController::class);
+
+
     Route::get('/order' ,[OrderController::class,'index'])->name('order.index');
     Route::get('/order/confirm',[OrderController::class,'confirm'])->name('order.confirm');
     Route::delete('/order/{order}',[OrderController::class,'destroy'])->name('order.destroy');
@@ -75,6 +79,8 @@ Route::prefix('/panelAdmin')->middleware([
     Route::get('/comments',[\App\Http\Controllers\admin\CommentController::class,'index'])->name('comment.index');
     Route::get('/comments/{comment}',[\App\Http\Controllers\admin\CommentController::class,'show'])->name('comment.show');
     Route::delete('/comments/{comment}',[\App\Http\Controllers\admin\CommentController::class,'destroy'])->name('comment.destroy');
+    Route::resource('/blogs',BlogController::class);
+
 });
 
 /*Client Routing*/
@@ -108,6 +114,8 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::get('/search/bySubCategoryChildren/{category}',[homeProductController::class,'subCategorySearch'])->name('search.subCategory');
     Route::get('/search/byCategoryChildren/{category}',[homeProductController::class,'CategorySearch'])->name('search.category');
     Route::post('/search/byInput',[homeProductController::class,'searchInput'])->name('search.input');
+    Route::get('/blogs',[HomeBlogController::class,'index'])->name('blogs.index');
+    Route::get('/blogs/{blog}',[HomeBlogController::class,'show'])->name('blogs.show');
 
 
 

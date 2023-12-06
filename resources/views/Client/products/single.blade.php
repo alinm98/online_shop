@@ -79,15 +79,20 @@
                                 <div class="product-params dt-sl">
                                     <ul data-title="ویژگی‌های محصول">
                                         <li>
-                                            <span>حافظه داخلی: </span>
-                                            <span> 256 گیگابایت </span>
+                                            <span>{{$propertyGroups[0]->title}}: </span>
                                         </li>
+                                        @foreach($propertyGroups[0]->property as $value)
+                                            <li>
+                                                <span>{{$value->title}} : {{$value->getPropertyValue($product)}}</span>
+                                            </li>
+                                        @endforeach
 
                                     </ul>
                                     <div class="sum-more">
                                         <span class="show-more btn-link-border">
                                             + موارد بیشتر
                                         </span>
+
                                         <span class="show-less btn-link-border">
                                             - بستن
                                         </span>

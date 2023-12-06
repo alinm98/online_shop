@@ -39,7 +39,7 @@
                     <div class="col-lg-2 col-md-3 col-6">
                         <div class="logo-area">
                             <a href="{{route('home.index')}}">
-                                <img src="/client/assets/img/logo.png" alt="">
+                                <img src="/client/assets/img/croon.jpg" alt="">
                             </a>
                         </div>
                     </div>
@@ -124,13 +124,13 @@
 
                         @foreach($categories_parents as $categories_parent)
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-3">
-                                <a class="nav-link"
+                                <a class="nav-link" href="{{route('home.search.category',$categories_parent)}}"
                                    >{{$categories_parent->title}}</a>
                                 <ul class="sub-menu nav">
 
                                     @foreach($categories_parent->children as $category)
                                         <li class="list-item list-item-has-children">
-                                            <a class="nav-link"
+                                            <a class="nav-link" href="{{route('home.search.subCategory',$category)}}"
                                                >{{$category->title}}</a>
                                             @if(count($category->children)>0)
                                                 @foreach($category->children as $value)
@@ -147,6 +147,11 @@
                                 </ul>
                             </li>
                         @endforeach
+
+                        <li class="list-item mega-menu mega-menu-col-3">
+                            <a class="nav-link" href="{{route('home.blogs.index')}}"
+                            >بلاگ</a>
+                        </li>
 
 
                     </ul>
@@ -358,13 +363,8 @@
                     <div class="site-description col-12 col-lg-7">
                         <h1 class="site-title">فروشگاه اینترنتی کرون، بررسی، انتخاب و خرید آنلاین</h1>
                         <p>
-                            کرون به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با
-                            پایبندی به سه اصل کلیدی، پرداخت در
-                            محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با فروشگاه‌های
-                            معتبر جهان، به بزرگ‌ترین فروشگاه
-                            اینترنتی ایران تبدیل شود. به محض ورود به کرون با یک سایت پر از کالا رو به رو
-                            می‌شوید! هر آنچه که نیاز دارید و به
-                            ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
+                            مجموعه عطر کرون با بیش از یک دهه تجربه و نوآوری در طراحی و تولید عطرهای نیش با برخورداری از بهترین و باکیفیت ترین مواد اولیه اقدام به ساخت عطر نموده است.
+                            مجموعه کرون که از سال 1399 فعالیت خود را به صورت رسمی آغاز کرده است و این افتخار را داشته است که در زمینه ساخت عطرهای متفاوت و بی نظیر پیشکسوت تولید و طراحی عطر و ادکلن در ایران باشد.
                         </p>
                     </div>
                     <div class="symbol col-12 col-lg-5">
@@ -379,7 +379,7 @@
                 <p>
                     استفاده از مطالب فروشگاه اینترنتی کرون فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع است.
                     کلیه حقوق این سایت متعلق
-                    به شرکت نوآوران فن آوازه (فروشگاه آنلاین کرون) می‌باشد.
+                    به شرکت ایرمان بهداشت ایوار (فروشگاه آنلاین کرون) می‌باشد.
                 </p>
             </div>
         </div>

@@ -85,7 +85,7 @@ class homeProductController extends Controller
 
     }
 
-    public function subChildrenSearch(Category $category)
+    public function subChildrenSearch(Category $category): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $product = Product::query()->where('inventory',1)->where('category_id',$category->id)->get();
 
@@ -107,23 +107,27 @@ class homeProductController extends Controller
         ]);
     }
 
-    public function subCategorySearch(Category $category)
+    public function subCategorySearch(Category $category): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $categories = $category->children()->get();
         $products = array();
+        $products[] = Product::query()->where('inventory',1)->where('category_id',$category->id)->get();
         foreach ($categories as $value){
-            $products = Product::query()->where('inventory',1)->where('category_id',$value->id)->get();
+            $products[] = Product::query()->where('inventory',1)->where('category_id',$value->id)->get();
         }
 
-        foreach ($products as $key => $product){
-            $products[$key] = $products[$key][0];
+        $result = collect();
+        foreach ($products as $value){
+            foreach ($value as $val){
+                $result->push($val);
+            }
         }
 
-        $products_most_view = $product->sortByDesc('visit');
-        $products_most_new = $product->sortByDesc('created_at');
-        $products_most_buy = $product->sortByDesc('buy_count');
-        $products_most_price = $product->sortByDesc('price');
-        $products_lowest_price = $product->sortBy('price');
+        $products_most_view = $result->sortByDesc('visit');
+        $products_most_new = $result->sortByDesc('created_at');
+        $products_most_buy = $result->sortByDesc('buy_count');
+        $products_most_price = $result->sortByDesc('price');
+        $products_lowest_price = $result->sortBy('price');
 
 
         return view('Client.products.search', [
@@ -132,7 +136,7 @@ class homeProductController extends Controller
             'products_most_buy'=>$products_most_buy,
             'products_most_price' =>$products_most_price,
             'products_lowest_price'=>$products_lowest_price,
-            'products_data' => $product,
+            'products_data' => $result,
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
         ]);
@@ -141,32 +145,32 @@ class homeProductController extends Controller
     public function CategorySearch(Category $category): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $categories = $category->children;
-        //dd($categories);
-        //$product = ::query()->where('inventory',1);
-        $products =collect();
-        //dd(Product::query()->where('inventory',1)->where('category_id',3)->get());
-        //dd($product->get()->toArray());
+
+        $products =array();
+
         foreach ($categories as $value){
-            //dd($value->children);
+
+            $products[] = Product::query()->where('inventory',1)->where('category_id',$value->id)->get();
             foreach ($value->children as $val){
-                //dd($val->id);
-                $products->push(Product::query()->where('inventory',1)->where('category_id',$val->id)->get());
-               //dd($products);
+                $products[] = Product::query()->where('inventory',1)->where('category_id',$val->id)->get();
+
+            }
+        }
+        //dd($products[0][0]);
+        $result = collect();
+        foreach ($products as $value){
+            foreach ($value as $val){
+                $result->push($val);
             }
         }
 
-        dd($products);
-        foreach ($products as $key => $product){
-            $products[$key] = $products[$key][0];
-        }
-        //dd($products);
 
 
-        $products_most_view = $products->sortByDesc('visit');
-        $products_most_new = $products->sortByDesc('created_at');
-        $products_most_buy = $products->sortByDesc('buy_count');
-        $products_most_price = $products->sortByDesc('price');
-        $products_lowest_price = $products->sortBy('price');
+        $products_most_view = $result->sortByDesc('visit');
+        $products_most_new = $result->sortByDesc('created_at');
+        $products_most_buy = $result->sortByDesc('buy_count');
+        $products_most_price = $result->sortByDesc('price');
+        $products_lowest_price = $result->sortBy('price');
 
         return view('Client.products.search', [
             'products_most_view' => $products_most_view,
@@ -174,7 +178,7 @@ class homeProductController extends Controller
             'products_most_buy'=>$products_most_buy,
             'products_most_price' =>$products_most_price,
             'products_lowest_price'=>$products_lowest_price,
-            'products_data' => $products,
+            'products_data' => $result,
             'category_data' => (new \App\Models\Category)->getSubParents(),
             'brands_data' => Brand::all(),
         ]);
