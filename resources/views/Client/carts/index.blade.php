@@ -103,10 +103,9 @@
                                             </li>
                                             <li>
                                                     <span>هزینه ارسال<span class="help-sn" data-toggle="tooltip"
-                                                                           data-html="true" data-placement="bottom"
-                                                                           title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>هزینه ارسال مرسولات می‌تواند وابسته به شهر و آدرس گیرنده متفاوت باشد. در صورتی که هر یک از مرسولات حداقل ارزشی برابر با ۱۵۰هزار تومان داشته باشد، آن مرسوله بصورت رایگان ارسال می‌شود.<br>'حداقل ارزش هر مرسوله برای ارسال رایگان، می تواند متغیر باشد.'</p></div>">
+                                                                           data-html="true" data-placement="bottom">
                                                             <span class="mdi mdi-information-outline"></span>
-                                                        </span></span><span>وابسته به آدرس</span>
+                                                        </span></span><span>50 هزار تومان</span>
                                             </li>
                                         </ul>
                                         <div class="checkout-summary-devider">
@@ -116,7 +115,7 @@
                                             <div class="checkout-summary-price-title">مبلغ قابل پرداخت:</div>
                                             <div class="checkout-summary-price-value">
                                                 <span
-                                                    class="checkout-summary-price-value-amount">{{number_format($total)}}</span>
+                                                    class="checkout-summary-price-value-amount">{{number_format($total+50000)}}</span>
                                                 تومان
                                             </div>
                                             <a href="{{route('home.cart.confirming')}}" class="mb-2 d-block">
@@ -130,8 +129,7 @@
                                                         کالاهای موجود در سبد شما ثبت و رزرو نشده‌اند، برای ثبت سفارش
                                                         مراحل بعدی را تکمیل کنید.
                                                     </span><span class="help-sn" data-toggle="tooltip" data-html="true"
-                                                                 data-placement="bottom"
-                                                                 title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>محصولات موجود در سبد خرید شما تنها در صورت ثبت و پرداخت سفارش برای شما رزرو می‌شوند. در صورت عدم ثبت سفارش، دیجی‌کالا هیچگونه مسئولیتی در قبال تغییر قیمت یا موجودی این کالاها ندارد.</p></div>">
+                                                                 data-placement="bottom">
                                                         <span class="mdi mdi-information-outline"></span>
                                                     </span></div>
                                         </div>
@@ -139,8 +137,10 @@
                                     <div class="dt-sn dt-sn--box checkout-feature-aside pt-4">
                                         <ul>
                                             <li class="checkout-feature-aside-item">
-                                                <img src="./assets/img/svg/delivery.svg" alt="">
-                                                تحویل اکسپرس
+                                                <img src="./assets/img/svg/return-policy.svg" alt="">
+                                                <strong>*توجه : پس از ثبت درخواست محصول شما در مدت 48 ساعت ساخته و آماده ارسال می شود.
+                                                    مورد شیشه های عطر :
+                                                    تمامی محصولات مجموعه کرون از شیشه های مجموعه با برچسب ارسال می‌شود و اگر کسی با شیشه اورجینال  محصول درخواست داشت می تواند با پرداخت هزینه بیشتر محصول خودش را تحویل بگیرد  .*</strong>
                                             </li>
                                         </ul>
                                     </div>

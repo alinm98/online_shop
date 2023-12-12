@@ -248,7 +248,7 @@
                     <div class="side-menu">
                         <div class="logo-nav-res dt-sl text-center">
                             <a href="#">
-                                <img src="assets/img/logo.png" alt="">
+                                <img src="/client/assets/img/croon.jpg" alt="">
                             </a>
                         </div>
                         <div class="search-box-side-menu dt-sl text-center mt-2 mb-3">
@@ -288,6 +288,10 @@
                                     </ul>
                                 </li>
                             @endforeach
+                                <li class="list-item mega-menu mega-menu-col-3">
+                                    <a class="nav-link" href="{{route('home.blogs.index')}}"
+                                    >بلاگ</a>
+                                </li>
                         </ul>
                     </div>
                     <div class="overlay-side-menu">
@@ -339,10 +343,11 @@
                             <p>ما را در شبکه های اجتماعی دنبال کنید.</p>
                             <div class="footer-social">
                                 <ul class="text-center">
-                                    <li><a href="#"><i class="mdi mdi-instagram"></i></a></li>
-                                    <li><a href="#"><i class="mdi mdi-telegram"></i></a></li>
-                                    <li><a href="#"><i class="mdi mdi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="mdi mdi-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/croon.ir"><i class="mdi mdi-instagram"></i></a></li>
+{{--                                    <li><a href="#"><i class="mdi mdi-telegram"></i></a></li>--}}
+                                    <li><a href="https://web.rubika.ir/#c=u0Ejdwn0f62c4b8c4124694d5cb635de">
+                                            <img src="/client/assets/img/theme/rubica.png" alt="" style="width: 22px; height: 22px"></a></li>
+{{--                                    <li><a href="#"><i class="mdi mdi-twitter"></i></a></li>--}}
                                 </ul>
                             </div>
                         </div>
@@ -368,8 +373,8 @@
                         </p>
                     </div>
                     <div class="symbol col-12 col-lg-5">
-                        <a href="#" target="_blank"><img src="assets/img/symbol-01.png" alt=""></a>
-                        <a href="#" target="_blank"><img src="assets/img/symbol-02.png" alt=""></a>
+                        <a href="#" target="_blank"><img src="/assets/img/symbol-01.png" alt=""></a>
+                        <a href="#" target="_blank"><img src="/assets/img/symbol-02.png" alt=""></a>
                     </div>
                 </div>
             </div>

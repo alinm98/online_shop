@@ -52,16 +52,10 @@
                                     <input type="radio" class="custom-control-input" name="radio1" id="radio1"
                                            value="option1" checked>
                                     <label for="radio1" class="custom-control-label">
-                                        عادی
+                                        عادی (هزینه 50 هزار تومان به سفارش اضافه میشود)
                                     </label>
                                 </div>
-                                <div class="custom-control custom-radio  pl-0 pr-3">
-                                    <input type="radio" class="custom-control-input" name="radio1" id="radio2"
-                                           value="option2">
-                                    <label for="radio2" class="custom-control-label">
-                                        سریع‌ (مرسوله‌ها در سریع‌ترین زمان ممکن ارسال می‌شوند)
-                                    </label>
-                                </div>
+
                             </div>
                         </form>
                     </section>
@@ -74,10 +68,9 @@
                             </li>
                             <li>
                                     <span>هزینه ارسال<span class="help-sn" data-toggle="tooltip" data-html="true"
-                                                           data-placement="bottom"
-                                                           title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>هزینه ارسال مرسولات می‌تواند وابسته به شهر و آدرس گیرنده متفاوت باشد. در صورتی که هر یک از مرسولات حداقل ارزشی برابر با ۱۵۰هزار تومان داشته باشد، آن مرسوله بصورت رایگان ارسال می‌شود.<br>'حداقل ارزش هر مرسوله برای ارسال رایگان، می تواند متغیر باشد.'</p></div>">
+                                                           data-placement="bottom">
                                             <span class="mdi mdi-information-outline"></span>
-                                        </span></span><span>وابسته به آدرس</span>
+                                        </span></span><span>50 هزار تومان</span>
                             </li>
                         </ul>
                         <div class="checkout-summary-devider">
@@ -86,10 +79,10 @@
                         <div class="checkout-summary-content">
                             <div class="checkout-summary-price-title">مبلغ قابل پرداخت:</div>
                             <div class="checkout-summary-price-value">
-                                <span class="checkout-summary-price-value-amount">{{number_format($total)}}</span>
+                                <span class="checkout-summary-price-value-amount">{{number_format($total+50000)}}</span>
                                 تومان
                             </div>
-                            <a href="{{route('home.order.store',$total)}}" class="mb-2 d-block">
+                            <a href="{{route('home.order.store',$total+50000)}}" class="mb-2 d-block">
                                 <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0 pl-0">
                                     <i class="mdi mdi-arrow-left"></i>
                                     تایید و ادامه ثبت سفارش
@@ -101,7 +94,7 @@
                                         مراحل بعدی را تکمیل کنید.
                                     </span><span class="help-sn" data-toggle="tooltip" data-html="true"
                                                  data-placement="bottom"
-                                                 title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>محصولات موجود در سبد خرید شما تنها در صورت ثبت و پرداخت سفارش برای شما رزرو می‌شوند. در صورت عدم ثبت سفارش، دیجی‌کالا هیچگونه مسئولیتی در قبال تغییر قیمت یا موجودی این کالاها ندارد.</p></div>">
+                                                 >
                                         <span class="mdi mdi-information-outline"></span>
                                     </span></div>
                         </div>
@@ -110,15 +103,9 @@
                         <ul>
                             <li class="checkout-feature-aside-item">
                                 <img src="./assets/img/svg/return-policy.svg" alt="">
-                                هفت روز ضمانت تعویض
-                            </li>
-                            <li class="checkout-feature-aside-item">
-                                <img src="./assets/img/svg/payment-terms.svg" alt="">
-                                پرداخت در محل با کارت بانکی
-                            </li>
-                            <li class="checkout-feature-aside-item">
-                                <img src="./assets/img/svg/delivery.svg" alt="">
-                                تحویل اکسپرس
+                               <strong>*توجه : پس از ثبت درخواست محصول شما در مدت 48 ساعت ساخته و آماده ارسال می شود.
+                                   مورد شیشه های عطر :
+                                   تمامی محصولات مجموعه کرون از شیشه های مجموعه با برچسب ارسال می‌شود و اگر کسی با شیشه اورجینال  محصول درخواست داشت می تواند با پرداخت هزینه بیشتر محصول خودش را تحویل بگیرد  .*</strong>
                             </li>
                         </ul>
                     </div>
