@@ -97,6 +97,7 @@
                                         ?>
                                         @if($user_role->hasStrPermission('view_dashboard'))
                                             <a class="dropdown-item" href="http://127.0.0.1:8000/panelAdmin">
+{{--                                            <a class="dropdown-item" href="https://croon.ir/panelAdmin">--}}
                                                 <i class="mdi mdi-account-card-details-outline"></i>پنل ادمین
                                             </a>
                                         @endif
@@ -344,10 +345,10 @@
                             <div class="footer-social">
                                 <ul class="text-center">
                                     <li><a href="https://www.instagram.com/croon.ir"><i class="mdi mdi-instagram"></i></a></li>
-{{--                                    <li><a href="#"><i class="mdi mdi-telegram"></i></a></li>--}}
+                                    <li><a href="https://t.me/CroonPerfume"><i class="mdi mdi-telegram"></i></a></li>
+                                    <li><a href="https://wa.me/989120982810"><i class="mdi mdi-whatsapp"></i></a></li>
                                     <li><a href="https://web.rubika.ir/#c=u0Ejdwn0f62c4b8c4124694d5cb635de">
-                                            <img src="/client/assets/img/theme/rubica.png" alt="" style="width: 22px; height: 22px"></a></li>
-{{--                                    <li><a href="#"><i class="mdi mdi-twitter"></i></a></li>--}}
+                                    <img src="/client/assets/img/theme/rubica.png" alt="" style="width: 22px; height: 22px"></a></li>
                                 </ul>
                             </div>
                         </div>

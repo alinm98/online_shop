@@ -115,7 +115,7 @@
                             <!-- Start Product-Slider -->
                             <div class="col-12 px-res-0">
                                 <div class="product-carousel carousel-md owl-carousel owl-theme">
-                                    @foreach($products as $product)
+                                    @foreach($top_buy_products as $product)
                                         <div class="item">
                                             <div class="product-card">
                                                 <div class="product-head">
@@ -167,6 +167,74 @@
                 </div>
             </div>
             <!-- End Product-Slider -->
+
+            <!-- Start random-Product-Slider -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <section class="slider-section dt-sl mb-5">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="section-title text-sm-title title-wide no-after-title-wide">
+                                    <h2>پیشنهادات ویژه</h2>
+                                    <a href="{{route('home.product.search.index')}}">مشاهده همه</a>
+                                </div>
+                            </div>
+
+                            <!-- Start Product-Slider -->
+                            <div class="col-12 px-res-0">
+                                <div class="product-carousel carousel-md owl-carousel owl-theme">
+                                    @foreach($random_products as $product)
+                                        <div class="item">
+                                            <div class="product-card">
+                                                <div class="product-head">
+                                                    <div class="rating-stars">
+                                                        <i class="fa fa-eye" aria-hidden="true">{{$product->visit}}    </i>
+                                                    </div>
+                                                    @if(!empty($product->discount))
+                                                        <div class="discount">
+                                                            <span>{{$product->discount->value}}%</span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <a class="product-thumb"
+                                                   href="{{route('home.product.show' , $product)}}">
+                                                    <img src="{{str_replace('public' , '/storage' , $product->image)}}"
+                                                         alt="Product Thumbnail">
+                                                </a>
+                                                <div class="product-card-body">
+                                                    <h5 class="product-title">
+                                                        <a href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    </h5>
+                                                    <a class="product-meta"
+                                                       href="{{route('home.product.show' , $product)}}">{{$product->name}}</a>
+                                                    <span class="product-price">
+                                                        @if(!empty($product->discount))
+                                                            <del style="color: red">
+                                                        @endif
+                                                                {{number_format($product->price)}} تومان</span>
+                                                    @if(!empty($product->discount))
+                                                    </del>
+                                                    @endif
+
+                                                    @if(!empty($product->discount))
+                                                        <span class="product-price">
+                                                            {{number_format($product->getDiscount())}} تومان
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                            <!-- End Product-Slider -->
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- End random-Product-Slider -->
         </div>
         <div class="container main-container">
 

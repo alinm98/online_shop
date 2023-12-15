@@ -25,7 +25,7 @@ class AddressRequest extends FormRequest
     {
         return [
             'address' => ['required'],
-            'zip_code' => ['required', 'max:11', 'min:11']
+            'zip_code' => ['required', 'digits:10']
         ];
     }
 }

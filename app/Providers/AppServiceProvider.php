@@ -39,6 +39,8 @@ class AppServiceProvider extends ServiceProvider
                 'categories' => Category::all(),
                 'products' => Product::all() ,
                 'brands' => Brand::all(),
+                'random_products' => Product::inRandomOrder()->take(20)->get(),
+                'top_buy_products' => Product::orderBy('buy_count', 'desc')->take(20)->get(),
             ]);
         });
 
