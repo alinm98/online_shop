@@ -323,10 +323,7 @@
                             </header>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="#">تماس با کرون</a>
-                                </li>
-                                <li>
-                                    <a href="#">درباره کرون</a>
+                                    <a href="{{route('home.questions.show')}}">سوالات پر تکرار</a>
                                 </li>
                             </ul>
                         </div>

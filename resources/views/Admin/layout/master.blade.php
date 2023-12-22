@@ -365,6 +365,34 @@
                         </li>
 
 
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-book"></i>
+                                <p>
+                                    پرسش و پاسخ
+                                    <i class="right fa fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('questions.create')}}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>ایجاد</p>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('questions.index')}}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>لیست</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

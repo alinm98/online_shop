@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductPropertyController;
 use App\Http\Controllers\admin\PropertyController;
 use App\Http\Controllers\admin\PropertyGroupController;
+use App\Http\Controllers\admin\QuestionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\AddressController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\client\homeUserController;
 use App\Http\Controllers\client\OrderController;
 use App\Http\Controllers\client\ProfileController;
 use App\Http\Controllers\admin\ColorController;
+
 use App\Http\Middleware\checkPermission;
 use Illuminate\Support\Facades\Route;
 
@@ -80,7 +82,7 @@ Route::prefix('/panelAdmin')->middleware([
     Route::get('/comments/{comment}',[\App\Http\Controllers\admin\CommentController::class,'show'])->name('comment.show');
     Route::delete('/comments/{comment}',[\App\Http\Controllers\admin\CommentController::class,'destroy'])->name('comment.destroy');
     Route::resource('/blogs',BlogController::class);
-
+    Route::resource('/questions', QuestionController::class)->except('show');
 });
 
 /*Client Routing*/
@@ -116,6 +118,7 @@ Route::prefix('/client')->name('home.')->group(function (){
     Route::post('/search/byInput',[homeProductController::class,'searchInput'])->name('search.input');
     Route::get('/blogs',[HomeBlogController::class,'index'])->name('blogs.index');
     Route::get('/blogs/{blog}',[HomeBlogController::class,'show'])->name('blogs.show');
+    Route::get('/questions', [QuestionController::class,'show'])->name('questions.show');
 
 
 
