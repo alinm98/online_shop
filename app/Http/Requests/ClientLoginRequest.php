@@ -24,7 +24,7 @@ class ClientLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' =>['required','email','exists:users,email'],
+            'mobile' =>['required','exists:users,mobile','digits:11'],
             'password'=>['required'],
             //'g-recaptcha-response' => ['required']
         ];

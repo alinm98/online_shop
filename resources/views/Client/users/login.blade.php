@@ -13,11 +13,11 @@
                             @csrf
 
                             <div class="form-row-title">
-                                <h3>ایمیل</h3>
+                                <h3>شماره تلفن</h3>
                             </div>
                             <div class="form-row with-icon">
-                                <input type="email" class="input-ui pr-2" name="email"
-                                       placeholder="ایمیل خود را وارد نمایید">
+                                <input type="text" class="input-ui pr-2" name="mobile"
+                                       placeholder="شماره تلفن خود را وارد نمایید">
                                 <i class="mdi mdi-account-circle-outline"></i>
                             </div>
 

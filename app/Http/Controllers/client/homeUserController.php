@@ -36,7 +36,7 @@ class homeUserController extends Controller
 
     public function login(ClientLoginRequest $request)
     {
-        $user = User::query()->where('email', $request->get('email'))->firstOrFail();
+        $user = User::query()->where('mobile', $request->get('mobile'))->firstOrFail();
         if ($user->password != $request->get('password')) {
             return redirect()->back()->withErrors(['password' => 'password is not correct']);
         }
